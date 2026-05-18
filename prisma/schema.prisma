@@ -1,0 +1,37 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Localidad {
+  id        Int        @id @default(autoincrement())
+  nombre    String
+  slug      String     @unique
+  farmacias Farmacia[]
+}
+
+model Farmacia {
+  id          Int       @id @default(autoincrement())
+  nombre      String
+  direccion   String
+  telefono    String?
+  lat         Float?
+  lng         Float?
+  localidadId Int
+  localidad   Localidad @relation(fields: [localidadId], references: [id])
+  turnos      Turno[]
+}
+
+model Turno {
+  id         Int      @id @default(autoincrement())
+  farmaciaId Int
+  farmacia   Farmacia @relation(fields: [farmaciaId], references: [id])
+  fechaInicio DateTime
+  fechaFin    DateTime
+
+  @@index([fechaInicio, fechaFin])
+}
