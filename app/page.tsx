@@ -1,190 +1,182 @@
-import Link from 'next/link';
 import { PrismaClient } from '@prisma/client';
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import FarmaciaInfo from './FarmaciaInfo';
+import FarmaciaDeTurnoCard from './FarmaciaDeTurnoCard';
+import FarmaciasGoogleMap from './FarmaciasGoogleMap';
+
+export const dynamic = 'force-static';
 
 const prisma = new PrismaClient();
 
-export const metadata = {
-  title: 'Farmacias de turno en Argentina',
-  description:
-    'Consultá farmacias de turno actualizadas por localidad en distintas provincias de Argentina.',
-};
+interface Props {
+  params: Promise<{ localidad: string }>;
+}
 
-export default async function Home() {
+export async function generateStaticParams() {
   const localidades = await prisma.localidad.findMany({
-    orderBy: { nombre: 'asc' },
+    select: {
+      slug: true,
+    },
   });
 
+  return localidades.map((l) => ({
+    localidad: l.slug,
+  }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { localidad } = await params;
+  const nombre = localidad.replace(/-/g, ' ');
+  const nombreFormateado = nombre.charAt(0).toUpperCase() + nombre.slice(1);
+
+  return {
+    title: `Farmacia de Turno Hoy en ${nombreFormateado} | Horarios y Dirección`,
+    description: `Consulta la farmacia que está de turno hoy en ${nombreFormateado}.`,
+  };
+}
+
+export default async function LocalidadPage({ params }: Props) {
+  const { localidad } = await params;
+  const ahora = new Date();
+
+  const localidadData = await prisma.localidad.findUnique({
+    where: { slug: localidad }
+  });
+
+  if (!localidadData) notFound();
+
+  const farmaciasHoy = await prisma.farmacia.findMany({
+    where: {
+      localidadId: localidadData.id,
+      turnos: {
+        some: {
+          fechaInicio: { lte: ahora },
+          fechaFin: { gte: ahora }
+        }
+      }
+    }
+  });
+
+  const farmaciaHoy = farmaciasHoy.length > 0 ? farmaciasHoy[0] : null;
+
+  const proximosTurnos = await prisma.turno.findMany({
+    where: {
+      farmacia: { localidadId: localidadData.id },
+      fechaInicio: { gt: ahora }
+    },
+    include: { farmacia: true },
+    orderBy: { fechaInicio: 'asc' },
+    take: 3
+  });
+
+  const nombreLocalidad = localidadData.nombre;
+
   return (
-    <main className="min-h-screen bg-gray-50">
-      {/* HERO */}
-      <section className="bg-[#0F2343] border-b shadow-sm">
-        <div className="max-w-6xl mx-auto px-6 py-14 md:py-20">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight text-white">
-              Farmacias de turno en Argentina
-            </h1>
+    <main className="w-full max-w-4xl mx-auto p-4 sm:p-8 font-sans text-slate-900 bg-white min-h-screen">
 
-            <p className="mt-5 text-lg text-blue-100 leading-relaxed">
-              Consultá farmacias de turno actualizadas por localidad en distintas
-              provincias del país.
-            </p>
-          </div>
+      {/* HEADER DE LA PÁGINA */}
+      <header className="text-center mb-6">
+        <h1 className="text-3xl font-extrabold text-slate-800 mb-1">
+          Farmacia de turno hoy en {nombreLocalidad}
+        </h1>
+        <p className="text-sm text-slate-500 font-medium">
+          Actualizado el {ahora.toLocaleDateString('es-AR')}
+        </p>
+      </header>
+
+      {/* SECCIÓN INFORMATIVA (img1) */}
+      <section className="mb-8 p-5 bg-[#f0fff4] border border-[#c6f6d5] rounded-2xl flex items-start shadow-sm">
+        <div className="mr-4 mt-0.5">
+          <svg className="w-6 h-6 text-[#38a169]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
         </div>
+        <p className="text-[14.5px] text-slate-700 leading-relaxed italic">
+          Servicio rápido de consulta de <strong className="text-slate-800">Farmacias de Turno en {nombreLocalidad}</strong>. Encontrará en tiempo real cuál es la <strong className="text-slate-800">Farmacia de Guardia</strong> con servicio <strong className="text-slate-800">turno 24 horas</strong>. Consulte la dirección, el teléfono y la ubicación exacta para recibir atención farmacéutica inmediata.
+        </p>
       </section>
 
-      {/* INFO BOX */}
-      <section className="max-w-6xl mx-auto px-6 pt-8">
-        <div className="bg-green-50 border border-green-200 rounded-3xl p-6 md:p-8 shadow-sm">
-          <div className="flex items-start gap-4">
-            <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
-              <span className="text-green-600 text-xl font-bold">+</span>
+      {/* CARD PRINCIPAL */}
+      <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border-t-4 border-[#2ecc71] mb-4 min-h-[200px] flex flex-col justify-center">
+        {farmaciasHoy.length > 1 ? (
+          <FarmaciasGoogleMap farmacias={farmaciasHoy} nombreLocalidad={nombreLocalidad} />
+        ) : farmaciaHoy ? (
+          <>
+            <FarmaciaDeTurnoCard farmacia={farmaciaHoy} fecha={ahora} />
+            <FarmaciaInfo farmacia={farmaciaHoy} nombreLocalidad={nombreLocalidad} />
+          </>
+        ) : (
+          <div className="text-center py-6">
+            <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg className="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+              </svg>
             </div>
-
-            <div>
-              <p className="text-gray-700 leading-relaxed text-base md:text-lg">
-                Servicio rápido de consulta de{' '}
-                <strong>Farmacias de Turno</strong>. Encontrá información
-                actualizada por localidad con dirección y teléfono para recibir
-                atención farmacéutica de manera rápida y sencilla.
-              </p>
-            </div>
+            <p className="text-slate-500 font-bold text-lg">No hay turnos cargados para hoy</p>
+            <p className="text-slate-400 text-sm mt-1">Por favor, consulte más tarde o verifique los próximos turnos debajo.</p>
           </div>
-        </div>
-      </section>
+        )}
+      </div>
 
-      {/* LOCALIDADES */}
-      <section className="max-w-6xl mx-auto px-6 py-10">
-        <div className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden">
-          {/* HEADER */}
-          <div className="border-b border-gray-100 px-6 py-5 bg-white">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-              <div>
-                <h2 className="text-2xl font-bold text-[#0F2343]">
-                  Seleccioná tu localidad
-                </h2>
+      <div className="bg-[#f8fafc] border-l-4 border-slate-300 p-5 rounded-r-2xl mb-6 text-left">
+        <p className="text-[14px] text-slate-600 leading-relaxed italic">
+          * El turno es de <strong className="text-slate-800">24 horas</strong> y rige <strong className="text-slate-800">a partir de las 8:00 AM</strong> del día indicado hasta las 8:00 AM del día siguiente.
+        </p>
+      </div>
 
-                <p className="text-sm text-gray-500 mt-1">
-                  Accedé al listado actualizado de farmacias disponibles.
+      {/* SECCIÓN PRÓXIMOS TURNOS */}
+      {proximosTurnos.length > 0 && (
+        <section className="mt-12 text-left">
+          <h3 className="text-xl font-bold text-slate-800 mb-5 px-1 flex items-center">
+            <svg className="w-5 h-5 mr-2 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-4 4V3m-6 4h12M6 11h12M6 15h12M6 19h12"></path>
+            </svg>
+            Próximos Turnos
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {proximosTurnos.map((t) => (
+              <div key={t.id} className="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                <p className="text-[10px] font-bold text-green-500 uppercase tracking-wider mb-2">
+                  {new Date(t.fechaInicio).toLocaleDateString('es-AR', { day: 'numeric', month: 'long' })}
                 </p>
+                <p className="font-extrabold text-slate-800 text-sm truncate uppercase">{t.farmacia.nombre}</p>
+                <p className="text-xs text-slate-500 truncate mt-1">{t.farmacia.direccion}</p>
               </div>
-
-              <div className="text-sm font-medium text-gray-500">
-                {localidades.length} localidades disponibles
-              </div>
-            </div>
+            ))}
           </div>
+        </section>
+      )}
 
-          {/* GRID */}
-          <div className="p-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {localidades.map((loc) => (
-                <Link
-                  key={loc.id}
-                  href={`/${loc.slug}/farmacias-de-turno`}
-                  className="
-                    group
-                    rounded-2xl
-                    border
-                    border-gray-200
-                    bg-white
-                    p-5
-                    hover:border-green-300
-                    hover:bg-green-50
-                    hover:shadow-md
-                    transition-all
-                  "
-                >
-                  <div className="flex items-center justify-between gap-3">
-                    <div>
-                      <h3 className="font-bold text-[#0F2343] text-lg group-hover:text-green-700">
-                        {loc.nombre}
-                      </h3>
-
-                      <p className="text-sm text-gray-500 mt-1">
-                        Ver farmacias de turno
-                      </p>
-                    </div>
-
-                    <div className="text-green-600 font-semibold text-sm whitespace-nowrap">
-                      Ver →
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
+      {/* SECCIÓN HORARIOS DE ATENCIÓN NORMAL */}
+      <section className="mt-12 p-6 bg-[#f0f7ff] border border-[#dbeafe] rounded-2xl shadow-sm text-left">
+        <h3 className="text-xl font-bold text-[#1e40af] mb-4 flex items-center">
+          <svg className="w-6 h-6 mr-2 text-[#3b82f6]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          Horarios de Atención Normal (Diurna)
+        </h3>
+        <div className="space-y-4">
+          <p className="text-[15px] text-slate-700 font-medium">
+            Todas las Farmacias en {nombreLocalidad} atienden en los siguientes horarios:
+          </p>
+          <div className="space-y-2">
+            <p className="text-[15px] text-slate-800">
+              <span className="font-extrabold">Lunes a Viernes:</span> 8:00 a 12:30 y de 16:00 a 19:30
+            </p>
+            <p className="text-[15px] text-slate-800">
+              <span className="font-extrabold">Sábados:</span> 8:30 a 12:30
+            </p>
           </div>
+          <p className="text-[13.5px] text-[#3b82f6] italic pt-2 leading-relaxed">
+            Fuera de estos horarios y los domingos, solo la Farmacia de Turno indicada arriba ofrece atención de guardia 24 hs.
+          </p>
         </div>
       </section>
 
-      {/* CONTENIDO SEO */}
-      <section className="max-w-6xl mx-auto px-6 pb-10">
-        <div className="bg-white rounded-3xl border border-gray-200 shadow-sm p-6 md:p-8">
-          <h2 className="text-2xl font-bold text-[#0F2343] mb-4">
-            Información actualizada de farmacias de turno
-          </h2>
-
-          <div className="space-y-4 text-gray-600 leading-relaxed">
-            <p>
-              Este sitio permite consultar farmacias de turno por localidad de
-              manera rápida y organizada.
-            </p>
-
-            <p>
-              La información se obtiene desde colegios farmacéuticos,
-              municipios y otras fuentes públicas disponibles.
-            </p>
-
-            <p>
-              El sistema incorpora progresivamente nuevas localidades y
-              provincias para ampliar la cobertura en todo el país.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="max-w-6xl mx-auto px-6 pb-16">
-        <div className="bg-white rounded-3xl border border-gray-200 shadow-sm p-6 md:p-8">
-          <h2 className="text-2xl font-bold text-[#0F2343] mb-6">
-            Preguntas frecuentes
-          </h2>
-
-          <div className="space-y-6">
-            <div>
-              <h3 className="font-semibold text-[#0F2343] mb-2">
-                ¿Cómo consultar farmacias de turno?
-              </h3>
-
-              <p className="text-gray-600">
-                Seleccioná tu localidad para acceder al listado actualizado de
-                farmacias disponibles actualmente.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-semibold text-[#0F2343] mb-2">
-                ¿Cada cuánto se actualizan los datos?
-              </h3>
-
-              <p className="text-gray-600">
-                La información se actualiza periódicamente según las fuentes
-                oficiales disponibles para cada localidad.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-semibold text-[#0F2343] mb-2">
-                ¿Qué localidades están disponibles?
-              </h3>
-
-              <p className="text-gray-600">
-                El sitio incorpora progresivamente localidades de distintas
-                provincias de Argentina.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <footer className="mt-16 text-center text-[12px] text-slate-400 pb-10 uppercase tracking-widest">
+        © {ahora.getFullYear()} Farmacias de turno {nombreLocalidad}
+      </footer>
     </main>
   );
 }
