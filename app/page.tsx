@@ -1,7 +1,8 @@
 import Link from 'next/link';
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '@/prisma';
 
-const prisma = new PrismaClient();
+//import { PrismaClient } from '@prisma/client';
+//const prisma = new PrismaClient();
 
 export const metadata = {
   title: 'Farmacias de turno en Argentina',

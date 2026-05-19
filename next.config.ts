@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  outputFileTracingIncludes: {
+    '/**': ['./prisma/dev.db'], // Reemplaza 'dev.db' por el nombre exacto de tu archivo
+  },
 };
 
 export default nextConfig;
