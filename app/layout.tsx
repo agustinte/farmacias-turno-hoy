@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +28,23 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">{children}
+        <footer className="mt-auto bg-white border-t border-gray-100">
+          <div className="max-w-6xl mx-auto px-6 py-6 text-sm text-gray-600 flex items-center justify-between">
+            <div>
+              <Link href="/" className="font-semibold text-[#0F2343] hover:text-green-700">
+                Farmacias de Turno
+              </Link>
+            </div>
+
+            <div>
+              <Link href="/politica-privacidad" className="hover:text-green-700">
+                Política de Privacidad
+              </Link>
+            </div>
+          </div>
+        </footer>
+      </body>
     </html>
   );
 }

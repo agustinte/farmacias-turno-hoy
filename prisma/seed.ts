@@ -2,140 +2,124 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-async function main() {
-  console.log('🚀 Iniciando carga de datos para Pergamino...');
+// 1. Configuración de datos de entrada basados en tu listado
+const LOCALIDAD_ID = 3;
 
-  // 1. Crear o buscar la Localidad de Pergamino
-  const pergamino = await prisma.localidad.upsert({
-    where: { slug: 'pergamino' },
-    update: {},
-    create: {
-      nombre: 'Pergamino',
-      slug: 'pergamino',
-    },
+interface TurnoCalendario {
+  fechaStr: string; // Formato D/M/YYYY
+  farmacias: string[];
+}
+
+const calendarioTurnos: TurnoCalendario[] = [
+  { fechaStr: '20/5/2026', farmacias: ['Rodríguez', 'San Antonio', 'Piergallini', 'Ventola', 'Biagi'] },
+  { fechaStr: '21/5/2026', farmacias: ['Los Andes', 'Garyulo', 'Banfi', 'Gaich', 'Chacón'] },
+  { fechaStr: '22/5/2026', farmacias: ['Picco', 'Navarro', 'Del Pueblo', 'De Gaetani', 'Trotta'] },
+  { fechaStr: '23/5/2026', farmacias: ['Verdún', 'Valdez', 'La Licata', 'Boldrini', 'Panella'] },
+  { fechaStr: '24/5/2026', farmacias: ['Pistone', 'Avenida', 'Del Puente', 'Schneider', 'Fernández'] },
+  { fechaStr: '25/5/2026', farmacias: ['Gallo', 'Cosio', 'Millán', 'Centenario', 'Seta'] },
+  { fechaStr: '26/5/2026', farmacias: ['Fenix', 'Riera', 'Alé', 'Mac Donnell', 'Pretini'] },
+  { fechaStr: '27/5/2026', farmacias: ['Otegui', 'Couso', 'Sierra', 'Speranza', 'Zeppa'] },
+  { fechaStr: '28/5/2026', farmacias: ['Alcobendas', 'Masera', 'Martínez', 'Mariani', 'Vaschetti'] },
+  { fechaStr: '29/5/2026', farmacias: ['Anastasini', 'Manzoco', 'Baglioni', 'Del Cruce', 'Colell'] },
+  { fechaStr: '30/5/2026', farmacias: ['Malvinas', 'López', 'Galli', 'Bauzá', 'Gardes'] },
+  { fechaStr: '31/5/2026', farmacias: ['Rodríguez', 'San Antonio', 'Piergallini', 'Ventola', 'Biagi'] },
+];
+
+/**
+ * Función auxiliar para normalizar texto: quita tildes, diéresis y pasa a minúsculas
+ */
+function normalizarTexto(texto: string): string {
+  return texto
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '') // Elimina los caracteres de acentuación
+    .trim();
+}
+
+/**
+ * Parsea un string "D/M/YYYY" y devuelve un objeto Date seteado a las 08:00 AM local
+ */
+function crearFechaInicio(fechaStr: string): Date {
+  const [dia, mes, anio] = fechaStr.split('/').map(Number);
+  // Nota: El mes en JavaScript Date va de 0 a 11 (enero es 0, mayo es 4)
+  return new Date(anio, mes - 1, dia, 8, 0, 0, 0);
+}
+
+async function main() {
+  console.log('🚀 Iniciando la carga del calendario de turnos...');
+
+  // 1. Verificar que la localidad existe en la base de datos
+  const localidad = await prisma.localidad.findUnique({
+    where: { id: LOCALIDAD_ID },
   });
 
-  const LOCALIDAD_ID = pergamino.id;
-  console.log(`📍 Localidad procesada: ${pergamino.nombre} (ID: ${LOCALIDAD_ID})`);
-
-  // 2. Listado Maestro de Farmacias con datos 100% completos
-  const PHARMACIES = [
-    { name: 'FARMACIA AVENIDA', address: 'AV. DE MAYO 892', phone: '-' },
-    { name: 'FARMACIA DEL PUENTE', address: 'JUAN B. JUSTO 1596', phone: '-' },
-    { name: 'FARMACIA PANELLA', address: 'AV. DE MAYO 1098', phone: '-' },
-    { name: 'FARMACIA RIERA', address: 'SAN NICOLAS 699', phone: '-' },
-    { name: 'FARMACIA RODRIGUEZ', address: 'ALSINA 1253', phone: '43-6955' },
-    { name: 'FARMACIA BANFI', address: 'AMEGHINO 821', phone: '43-7813' },
-    { name: 'FARMACIA CARNEVALE', address: 'V. SARFIELD Y SALTA', phone: '-' },
-    { name: 'FARMACIA CERVANTES', address: 'AV. DE MAYO 205', phone: '-' },
-    { name: 'FARMACIA CHACON', address: 'SCALABRINI ORTIZ 711', phone: '-' },
-    { name: 'FARMACIA COLELL', address: 'VELEZ SARSFIELD 308', phone: '-' },
-    { name: 'FARMACIA CONTICELLO', address: 'HIPOLITO IRIGOYEN 101', phone: '42-3846' },
-    { name: 'FARMACIA DEL CRUCE', address: 'H. IRIGOYEN 1053', phone: '42-5231' },
-    { name: 'FARMACIA DEL PUEBLO', address: 'SAN NICOLAS 600', phone: '42-3278' },
-    { name: 'FARMACIA FENIX', address: 'BV. ALSINA 690', phone: '-' },
-    { name: 'FARMACIA FERNANDEZ', address: 'BV. M. UGARTE 447', phone: '-' },
-    { name: 'FARMACIA GAICH', address: 'AV. JUAN B. JUSTO 2383', phone: '-' },
-    { name: 'FARMACIA GARYULO', address: 'CASTELLI 109', phone: '42-5933' },
-    { name: 'FARMACIA LAVANDERA', address: 'FLORIDA 962', phone: '42-3878' },
-    { name: 'FARMACIA LOS ANDES', address: 'MITRE 814', phone: '-' },
-    { name: 'FARMACIA MANZOCO', address: 'BV. ROCHA 501', phone: '-' },
-    { name: 'FARMACIA MC DONNELL', address: 'AV. ILLIA 2553', phone: '42-2054' },
-    { name: 'FARMACIA PAZ', address: 'ALSINA 902', phone: '43-6289' },
-    { name: 'FARMACIA PEREZ', address: 'COLON 602', phone: '44-1555' },
-    { name: 'FARMACIA PICCO', address: 'AV. DE MAYO 1391', phone: '-' },
-    { name: 'FARMACIA PIERGALLINI', address: 'AMEGHINO 2002', phone: '44-0843' },
-    { name: 'FARMACIA RATTO', address: 'BV. COLON', phone: '-' },
-    { name: 'FARMACIA RAWSON', address: 'MERCED 1102', phone: '-' },
-    { name: 'FARMACIA ROASENDA', address: 'RASTREADOR FOURNIER 1646', phone: '42-0536' },
-    { name: 'FARMACIA SAN ANTONIO', address: 'AV. DE MAYO 493', phone: '-' },
-    { name: 'FARMACIA SPERANZA', address: 'AV. DE MAYO 1160', phone: '42-4088' },
-    { name: 'FARMACIA TASSAROLO', address: 'ALBERTI 200', phone: '-' },
-    { name: 'FARMACIA TROTTA', address: 'AV. TENIENTE ASUA 1675', phone: '43-5448' },
-    { name: 'FARMACIA VASCHETTI', address: 'MERCED Y ECHEVARRIA', phone: '43-7662' },
-    { name: 'FARMACIA ZAGO', address: 'SARMIENTO 806', phone: '-' },
-    
-    // Farmacias actualizadas y completadas con tus nuevos datos:
-    { name: 'FARMACIA ALCOBENDAS', address: 'Avda. E. Illia y Monroe', phone: '(02477) 411567' },
-    { name: 'FARMACIA MASERA', address: 'Bolivia 628', phone: '(02477) 430570' },
-    { name: 'FARMACIA MARTINEZ', address: 'Dr. Alem 875', phone: '(02477) 415930' },
-    { name: 'FARMACIA MARIANI', address: 'Ameghino 402', phone: '(02477) 412823' },
-    { name: 'FARMACIA ANASTASINI', address: 'Florida 962', phone: '(02477) 423878' },
-    { name: 'FARMACIA BAGLIONI', address: 'Avda. E.Illia y Solís', phone: '(02477) 421928' },
-    { name: 'FARMACIA MALVINAS', address: 'Avda.Rivero y Fta.Sarmiento', phone: '(02477) 415863' },
-    { name: 'FARMACIA LOPEZ', address: 'Velez Sarsfield y Salta', phone: '(02477) 411397' },
-    { name: 'FARMACIA GALLI', address: 'Bv.Colón y Mitre', phone: '(02477) 441555' },
-    { name: 'FARMACIA BAUZA', address: 'Avda. de Mayo y Moreno', phone: '(02477) 423701' },
-    { name: 'FARMACIA GARDES', address: 'C.Costa y Ecuador', phone: '(02477) 436867' }
-  ];
-
-  // Mapa temporal para capturar los IDs autoincrementales
-  const farmaciaIdMap: Record<string, number> = {};
-
-  console.log('📦 Insertando farmacias en la base de datos...');
-  for (const f of PHARMACIES) {
-    const nuevaFarmacia = await prisma.farmacia.create({
-      data: {
-        nombre: f.name,
-        direccion: f.address,
-        telefono: f.phone,
-        localidadId: LOCALIDAD_ID,
-      },
-    });
-    
-    // Clave limpia en mayúsculas para asociar los turnos fácilmente
-    const clave = f.name.replace('FARMACIA ', '').trim().toUpperCase();
-    farmaciaIdMap[clave] = nuevaFarmacia.id;
+  if (!localidad) {
+    throw new Error(`❌ Error crítico: No se encontró la Localidad con ID ${LOCALIDAD_ID} en la base de datos.`);
   }
-  console.log('✅ Todas las farmacias de Pergamino insertadas correctamente.');
 
-  // 3. Estructura de Turnos Grupales por Día
-  const TURNOS_POR_DIA = [
-    {
-      date: '2026-05-16',
-      farmacias: ['ALCOBENDAS', 'MASERA', 'MARTINEZ', 'MARIANI', 'VASCHETTI']
-    },
-    {
-      date: '2026-05-17',
-      farmacias: ['ANASTASINI', 'MANZOCO', 'BAGLIONI', 'DEL CRUCE', 'COLELL']
-    },
-    {
-      date: '2026-05-18',
-      farmacias: ['MALVINAS', 'LOPEZ', 'GALLI', 'BAUZA', 'GARDES']
-    }
-  ];
+  console.log(`📌 Localidad confirmada: ID ${localidad.id}`);
 
-  console.log('⏳ Generando calendario de turnos rotativos...');
-  for (const grupo of TURNOS_POR_DIA) {
-    const fechaInicio = new Date(`${grupo.date}T08:00:00`);
+  // 2. Traer todas las farmacias vinculadas a esta localidad
+  const farmaciasDb = await prisma.farmacia.findMany({
+    where: { localidadId: localidad.id },
+  });
+
+  if (farmaciasDb.length === 0) {
+    console.warn(`⚠️ Advertencia: No se encontraron farmacias registradas para la localidad ID ${localidad.id}.`);
+  }
+
+  console.log(`📦 Se recuperaron ${farmaciasDb.length} farmacias de la base de datos.`);
+
+  // 3. Procesar e iterar el calendario para dar de alta los turnos
+  let turnosCreadosContador = 0;
+
+  for (const entrada of calendarioTurnos) {
+    const fechaInicio = crearFechaInicio(entrada.fechaStr);
+
+    // Calcular la fecha de fin exactamente 24 horas después
     const fechaFin = new Date(fechaInicio);
-    fechaFin.setDate(fechaFin.getDate() + 1);
+    fechaFin.setHours(fechaFin.getHours() + 24);
 
-    for (const nombreClave of grupo.farmacias) {
-      const farmaciaId = farmaciaIdMap[nombreClave];
+    console.log(`\n📅 Procesando turnos para el día: ${entrada.fechaStr} (08:00 AM a 08:00 AM del día siguiente)`);
 
-      if (farmaciaId) {
-        await prisma.turno.create({
-          data: {
-            fechaInicio,
-            fechaFin,
-            farmaciaId: farmaciaId,
-          },
-        });
-      } else {
-        console.warn(`⚠️ No se encontró ID para la farmacia de guardia: ${nombreClave}`);
+    for (const nombreTurno of entrada.farmacias) {
+      const nombreTurnoNorm = normalizarTexto(nombreTurno);
+
+      // Búsqueda flexible dentro de las farmacias traídas de la DB
+      const farmaciaMatch = farmaciasDb.find((f) => {
+        const nombreDbNorm = normalizarTexto(f.nombre);
+        // Verifica si el nombre de la DB contiene la palabra del turno (ej: "FARMACIA RODRIGUEZ" contiene "rodriguez")
+        return nombreDbNorm.includes(nombreTurnoNorm);
+      });
+
+      if (!farmaciaMatch) {
+        console.warn(`⚠️ [Descalzado] No se encontró coincidencia en la DB para el turno: "${nombreTurno}"`);
+        continue;
       }
+
+      // 4. Crear el registro del turno asignando la relación correspondiente
+      await prisma.turno.create({
+        data: {
+          fechaInicio,
+          fechaFin,
+          farmaciaId: farmaciaMatch.id, // Con esto es suficiente, la localidad se infiere de la farmacia
+        },
+      });
+
+      turnosCreadosContador++;
     }
   }
 
-  console.log('🏁 ¡Proceso completado con éxito para la localidad de Pergamino!');
+  console.log(`\n✨ Proceso finalizado con éxito. Se crearon ${turnosCreadosContador} registros de turnos.`);
 }
 
 main()
-  .catch((e) => {
-    console.error('❌ Error crítico en el script:', e);
+  .catch((error) => {
+    console.error('❌ Ocurrió un error durante la ejecución del script:');
+    console.error(error);
     process.exit(1);
   })
   .finally(async () => {
+    // Desconexión segura de Prisma Client
     await prisma.$disconnect();
   });

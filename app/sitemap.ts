@@ -27,6 +27,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'weekly' as const,
       priority: 1.0, // Prioridad máxima para la Home
     },
+    {
+      url: `${URL_BASE}/politica-privacidad`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.3, 
+    },
     ...rutasLocalidades,
   ];
 }
