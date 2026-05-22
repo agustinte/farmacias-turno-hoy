@@ -71,6 +71,16 @@ export default async function LocalidadPage({ params }: Props) {
     take: 3
   });
 
+  // Si no hay turnos actuales, buscamos el último turno cargado (más reciente en el pasado)
+  const ultimoTurno = await prisma.turno.findFirst({
+    where: {
+      farmacia: { localidadId: localidadData.id },
+      fechaInicio: { lte: ahora }
+    },
+    include: { farmacia: true },
+    orderBy: { fechaInicio: 'desc' }
+  });
+
   const nombreLocalidad = localidadData.nombre;
 
   return (
@@ -106,6 +116,14 @@ export default async function LocalidadPage({ params }: Props) {
           <>
             <FarmaciaDeTurnoCard farmacia={farmaciaHoy} fecha={ahora} />
             <FarmaciaInfo farmacia={farmaciaHoy} nombreLocalidad={nombreLocalidad} />
+          </>
+        ) : ultimoTurno ? (
+          <>
+            <div className="inline-block mb-4 px-3 py-2 rounded-full bg-yellow-50 border border-yellow-200 text-yellow-800 text-sm font-medium">
+              Información  pendiente de actualización oficial. Mostrando último turno registrado
+            </div>
+            <FarmaciaDeTurnoCard farmacia={ultimoTurno.farmacia} fecha={new Date(ultimoTurno.fechaInicio)} />
+            <FarmaciaInfo farmacia={ultimoTurno.farmacia} nombreLocalidad={nombreLocalidad} />
           </>
         ) : (
           <div className="text-center py-6">
@@ -175,9 +193,7 @@ export default async function LocalidadPage({ params }: Props) {
         </div>
       </section>
 
-      <footer className="mt-16 text-center text-[12px] text-slate-400 pb-10 uppercase tracking-widest">
-        © {ahora.getFullYear()} Farmacias de turno {nombreLocalidad}
-      </footer>
+      {/* Footer generalizado: se elimina el footer local para evitar duplicados */}
     </main>
   );
 }
