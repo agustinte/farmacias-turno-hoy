@@ -31,9 +31,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const nombre = localidad.replace(/-/g, ' ');
   const nombreFormateado = nombre.charAt(0).toUpperCase() + nombre.slice(1);
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') ?? '';
+  const canonical = siteUrl ? `${siteUrl}/${localidad}/farmacias-de-turno` : undefined;
+
   return {
     title: `Farmacia de Turno Hoy en ${nombreFormateado} | Horarios y Dirección`,
     description: `Consulta la farmacia que está de turno hoy en ${nombreFormateado}.`,
+    ...(canonical ? { alternates: { canonical } } : {}),
   };
 }
 
