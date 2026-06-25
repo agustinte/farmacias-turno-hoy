@@ -87,8 +87,39 @@ export default async function LocalidadPage({ params }: Props) {
 
   const nombreLocalidad = localidadData.nombre;
 
+  // Preparar JSON-LD para Schema.org: si hay farmacia de turno, marcamos esa farmacia; si no, marcamos la página
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') ?? '';
+  const pageUrl = siteUrl ? `${siteUrl}/${localidad}/farmacias-de-turno` : undefined;
+
+  const jsonLd: any = farmaciaHoy
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'Pharmacy',
+        name: farmaciaHoy.nombre,
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: farmaciaHoy.direccion || undefined,
+          addressLocality: nombreLocalidad,
+          addressCountry: 'AR',
+        },
+        ...(farmaciaHoy.telefono && { telephone: farmaciaHoy.telefono }),
+        ...(pageUrl && { url: pageUrl }),
+      }
+    : {
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: `Farmacia de turno hoy en ${nombreLocalidad}`,
+        ...(pageUrl && { url: pageUrl }),
+      };
+
   return (
     <main className="w-full max-w-4xl mx-auto p-4 sm:p-8 font-sans text-slate-900 bg-white min-h-screen">
+
+      {/* JSON-LD para Schema.org */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
       {/* HEADER DE LA PÁGINA */}
       <header className="text-center mb-6">

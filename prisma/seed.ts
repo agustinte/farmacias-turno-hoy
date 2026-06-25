@@ -1,177 +1,158 @@
 import { PrismaClient } from '@prisma/client';
-import type { Farmacia, Localidad } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-const NOMBRE_LOCALIDAD = 'Capitan Sarmiento';
-const SLUG_LOCALIDAD = 'capitan-sarmiento';
+// ==========================================
+// CONFIGURACIÓN: MODIFICÁ ESTOS DATOS PARA OTRA LOCALIDAD
+// ==========================================
+//const NOMBRE_LOCALIDAD = 'San Antonio de Areco';
+// const NOMBRE_LOCALIDAD = 'Baradero'; 
+// const NOMBRE_LOCALIDAD = 'Pergamino'; 
+// const NOMBRE_LOCALIDAD = 'San Andres de Giles'; 
+// const NOMBRE_LOCALIDAD = 'Mercedes';
+ const NOMBRE_LOCALIDAD = 'Capitan Sarmiento';  
 
-// Farmacias provistas (nombre - direccion - telefono cuando esté disponible)
-const FARMACIAS_DATA: Array<{ nombre: string; direccion?: string; telefono?: string }> = [
-  { nombre: 'Farmacia Folguera', direccion: 'Aristóbulo del Valle', telefono: undefined },
-  { nombre: 'Farmacia Lagorio', direccion: 'Av. Roque Sáenz Peña 598', telefono: '+542478603272' },
-  { nombre: 'Farmacia Perez', direccion: 'Av. Pres. Perón, B2752', telefono: undefined },
-  { nombre: 'Farmacia Ruiz', direccion: 'Av. Leandro N. Alem 504', telefono: '+542478481348' },
-  { nombre: 'Farmacia del Pueblo', direccion: 'Rivadavia 715', telefono: '+542478481253' },
+// <-- Cambiá el calendario acá
+// const CALENDARIO_RAW = [
+//   { fecha: '2026-07-01', claveFarmacia: 'Central' },
+//   { fecha: '2026-07-02', claveFarmacia: 'Del Pueblo' },
+// ];
+const CALENDARIO_RAW = [
+  { fecha: '2026-06-01', claveFarmacia: 'Ruiz' },
+  { fecha: '2026-06-02', claveFarmacia: 'Lagorio' },
+  { fecha: '2026-06-03', claveFarmacia: 'Del Pueblo' },
+  { fecha: '2026-06-04', claveFarmacia: 'Perez' },
+  { fecha: '2026-06-05', claveFarmacia: 'Bava' },
+  { fecha: '2026-06-06', claveFarmacia: 'Folguera' },
+  { fecha: '2026-06-07', claveFarmacia: 'Ruiz' },
+
+  { fecha: '2026-06-08', claveFarmacia: 'Del Pueblo' },
+  { fecha: '2026-06-09', claveFarmacia: 'Lagorio' },
+  { fecha: '2026-06-10', claveFarmacia: 'Perez' },
+  { fecha: '2026-06-11', claveFarmacia: 'Bava' },
+  { fecha: '2026-06-12', claveFarmacia: 'Folguera' },
+  { fecha: '2026-06-13', claveFarmacia: 'Ruiz' },
+  { fecha: '2026-06-14', claveFarmacia: 'Lagorio' },
+
+  { fecha: '2026-06-15', claveFarmacia: 'Del Pueblo' },
+  { fecha: '2026-06-16', claveFarmacia: 'Perez' },
+  { fecha: '2026-06-17', claveFarmacia: 'Bava' },
+  { fecha: '2026-06-18', claveFarmacia: 'Folguera' },
+  { fecha: '2026-06-19', claveFarmacia: 'Ruiz' },
+  { fecha: '2026-06-20', claveFarmacia: 'Lagorio' },
+  { fecha: '2026-06-21', claveFarmacia: 'Del Pueblo' },
+
+  { fecha: '2026-06-22', claveFarmacia: 'Perez' },
+  { fecha: '2026-06-23', claveFarmacia: 'Bava' },
+  { fecha: '2026-06-24', claveFarmacia: 'Folguera' },
+  { fecha: '2026-06-25', claveFarmacia: 'Ruiz' },
+  { fecha: '2026-06-26', claveFarmacia: 'Lagorio' },
+  { fecha: '2026-06-27', claveFarmacia: 'Del Pueblo' },
+  { fecha: '2026-06-28', claveFarmacia: 'Perez' },
+
+  { fecha: '2026-06-29', claveFarmacia: 'Bava' },
 ];
 
-// Calendario mayo 2026: día -> claves
-const SCHEDULE: Record<number, string[]> = {
-  1: ['FOLGUERA'],
-  2: ['RUIZ'],
-  3: ['FOLGUERA'],
-  4: ['DEL PUEBLO'],
-  5: ['PEREZ'],
-  6: ['BAVA'],
-  7: ['FOLGUERA'],
-  8: ['RUIZ'],
-  9: ['LAGORIO'],
- 10: ['DEL PUEBLO'],
- 11: ['PEREZ'],
- 12: ['BAVA'],
- 13: ['RUIZ'],
- 14: ['BAVA'],
- 15: ['LAGORIO'],
- 16: ['DEL PUEBLO'],
- 17: ['PEREZ'],
- 18: ['BAVA'],
- 19: ['DEL PUEBLO'],
- 20: ['LAGORIO'],
-  21: ['RUIZ'],
-  22: ['DEL PUEBLO'],
-  23: ['PEREZ'],
-  24: ['BAVA'],
-  25: ['PEREZ'],
-  26: ['RUIZ'],
-  27: ['LAGORIO'],
-  28: ['DEL PUEBLO'],
-  29: ['RUIZ'],
-  30: ['BAVA'],
-  31: ['PEREZ'],
-};
-
-// Expand to raw calendario entries
-const CALENDARIO_RAW: Array<{ fecha: string; claveFarmacia: string }> = [];
-for (const [dayStr, claves] of Object.entries(SCHEDULE)) {
-  const day = Number(dayStr);
-  for (const clave of claves) {
-    const fecha = `2026-05-${String(day).padStart(2, '0')}`;
-    CALENDARIO_RAW.push({ fecha, claveFarmacia: clave });
-  }
-}
-
-function normalizeForMatch(s: string): string {
-  return (s || '')
-    .normalize('NFD')
-    .replace(/\p{Diacritic}/gu, '')
-    .replace(/[^0-9A-Za-z\s]/g, '')
-    .toUpperCase()
-    .trim();
-}
-
+// ==========================================
 async function main() {
-  console.log(`\n🚀 Seed: Capitan Sarmiento — creando localidad, farmacias y turnos (Mayo 2026)`);
+  console.log(`\n🚀 Iniciando carga inteligente de turnos para: ${NOMBRE_LOCALIDAD}...`);
 
-  // 1) Buscar o crear localidad por slug
-  let localidad: Localidad | null = await prisma.localidad.findUnique({ where: { slug: SLUG_LOCALIDAD } });
+  // 1. Buscar la localidad en memoria para compatibilidad absoluta de motores de DB
+  const localidades = await prisma.localidad.findMany();
+  
+  const localidad = localidades.find(
+    (l) => l.nombre.toLowerCase().trim() === NOMBRE_LOCALIDAD.toLowerCase().trim()
+  );
+
   if (!localidad) {
-    console.log(`⚠️ Localidad "${NOMBRE_LOCALIDAD}" no encontrada. Creando...`);
-    localidad = await prisma.localidad.create({ data: { nombre: NOMBRE_LOCALIDAD, slug: SLUG_LOCALIDAD } });
-    console.log(`✅ Localidad creada id=${localidad.id}`);
+    throw new Error(`❌ Error crítico: No se encontró la localidad "${NOMBRE_LOCALIDAD}" en la base de datos.`);
   }
 
-  // 2) Traer farmacias existentes de la localidad
-  const farmaciasExistentes = await prisma.farmacia.findMany({ where: { localidadId: localidad.id } });
-  const farmaciasMap = new Map<string, Farmacia>();
-  for (const f of farmaciasExistentes) {
-    farmaciasMap.set(normalizeForMatch(f.nombre), f);
+  // 2. Traer las farmacias asociadas a esta localidad
+  const farmaciasEnDB = await prisma.farmacia.findMany({
+    where: { localidadId: localidad.id },
+  });
+
+  if (farmaciasEnDB.length === 0) {
+    console.warn(`⚠️ Advertencia: No se encontraron farmacias vinculadas al ID de localidad: ${localidad.id}.`);
   }
 
-  // 3) Crear las farmacias provistas si faltan
-  for (const f of FARMACIAS_DATA) {
-    const key = normalizeForMatch(f.nombre);
-    if (!farmaciasMap.has(key)) {
-      const creado = await prisma.farmacia.create({
-        data: {
-          nombre: f.nombre,
-          direccion: f.direccion ?? 'Dirección no provista',
-          telefono: f.telefono || null,
-          localidadId: localidad.id,
-        },
-      });
-      farmaciasMap.set(normalizeForMatch(creado.nombre), creado);
-      console.log(`+ Farmacia creada: ${creado.nombre} (id=${creado.id})`);
-    }
-  }
-
-  // 4) Detectar claves en el schedule que no muestrean en FARMACIAS_DATA y crear placeholders
-  const clavesUnicas = Array.from(new Set(CALENDARIO_RAW.map((c) => c.claveFarmacia)));
-  for (const clave of clavesUnicas) {
-    const claveNorm = normalizeForMatch(clave);
-    if (!Array.from(farmaciasMap.keys()).includes(claveNorm)) {
-      // Crear placeholder con el nombre tal cual
-      const creado = await prisma.farmacia.create({
-        data: {
-          nombre: clave.charAt(0) + clave.slice(1).toLowerCase(),
-          direccion: 'Dirección no provista',
-          telefono: null,
-          localidadId: localidad.id,
-        },
-      });
-      farmaciasMap.set(normalizeForMatch(creado.nombre), creado);
-      console.warn(`⚠️ Se creó farmacia placeholder para clave del calendario: ${clave} -> id=${creado.id}`);
-    }
-  }
-
-  const farmaciasFinal = Array.from(farmaciasMap.values());
-
-  // 5) Construir idMap mediante matching flexible
+  // 3. Crear el idMap (clave string -> ID numérico de farmacia) de forma flexible
   const idMap: Record<string, number> = {};
-  for (const clave of clavesUnicas) {
-    const claveNorm = normalizeForMatch(clave);
-    const match = farmaciasFinal.find((f) => {
-      const nombreNorm = normalizeForMatch(f.nombre);
-      return nombreNorm.includes(claveNorm) || claveNorm.includes(nombreNorm);
-    });
-    if (match) idMap[clave] = match.id;
-  }
+  const clavesTurnos = Array.from(new Set(CALENDARIO_RAW.map((c) => c.claveFarmacia)));
 
-  console.log('📦 idMap generado:', idMap);
+  clavesTurnos.forEach((clave) => {
+    const claveNormalizada = clave.toLowerCase().trim();
 
-  // 6) Crear turnos evitando duplicados
-  let creados = 0;
+    const farmaciaMatch = farmaciasEnDB.find((f) =>
+      f.nombre.toLowerCase().includes(claveNormalizada)
+    );
+
+    if (farmaciaMatch) {
+      idMap[clave] = farmaciaMatch.id; 
+    }
+  });
+
+  console.log('📦 Mapa de vinculación en memoria generado de forma exitosa.');
+
+  // 4. Iterar y procesar el calendario (Crear o Saltar duplicados)
+  let turnosCreados = 0;
+  let turnosOmitidos = 0;
+
   for (const item of CALENDARIO_RAW) {
     const farmaciaId = idMap[item.claveFarmacia];
+
     if (!farmaciaId) {
-      console.warn(`⚠️ Clave no emparejada en idMap: "${item.claveFarmacia}" para fecha ${item.fecha}`);
+      console.warn(`⚠️ No se pudo emparejar la clave "${item.claveFarmacia}" para el día ${item.fecha}. Registro omitido.`);
       continue;
     }
 
-    const [y, m, d] = item.fecha.split('-').map(Number);
-    const fechaInicio = new Date(y, m - 1, d, 8, 0, 0, 0);
-    const fechaFin = new Date(fechaInicio);
-    fechaFin.setDate(fechaFin.getDate() + 1);
+    // Configurar rangos de fechas (08:00 AM a 08:00 AM del día siguiente)
+    const fechainicio = new Date(`${item.fecha}T08:00:00`);
+    const fechafin = new Date(fechainicio);
+    fechafin.setDate(fechafin.getDate() + 1);
 
-    const existente = await prisma.turno.findFirst({ where: { farmaciaId, fechaInicio } });
-    if (existente) {
-      console.warn(`⚠️ Turno existente omitido: ${item.fecha} -> ${item.claveFarmacia} (farmaciaId=${farmaciaId})`);
+    // Evitar duplicados: Verificar si ya existe este turno exacto
+    const turnoExistente = await prisma.turno.findFirst({
+      where: {
+        farmaciaId: farmaciaId,
+        fechaInicio: fechainicio,
+      },
+    });
+
+    if (turnoExistente) {
+      console.log(`ℹ️ El turno para la farmacia ID ${farmaciaId} el día ${item.fecha} ya existe en la DB. Saltando...`);
+      turnosOmitidos++;
       continue;
     }
 
-    await prisma.turno.create({ data: { farmaciaId, fechaInicio, fechaFin } });
-    creados++;
-    console.log(`+ Turno creado: ${item.fecha} -> ${item.claveFarmacia} (farmaciaId=${farmaciaId})`);
+    // Insertar registro si pasa el control
+    await prisma.turno.create({
+      data: {
+        farmaciaId: farmaciaId,
+        fechaInicio : fechainicio,
+        fechaFin : fechafin,
+      },
+    });
+
+    turnosCreados++;
   }
 
-  console.log(`\n✅ Seed completado. Turnos creados: ${creados}`);
+  // Resumen final de la operación
+  console.log(`\n==================================================`);
+  console.log(`✅ Proceso finalizado para la localidad: ${NOMBRE_LOCALIDAD}`);
+  console.log(`✨ Turnos nuevos creados: ${turnosCreados}`);
+  console.log(`🔄 Turnos omitidos (ya existían): ${turnosOmitidos}`);
+  console.log(`==================================================\n`);
 }
 
 main()
-  .catch((err) => {
-    console.error('\n❌ Error en seed_capitan_sarmiento:', err);
+  .catch((e) => {
+    console.error('\n❌ Ocurrió un error inesperado durante la automatización:');
+    console.error(e);
     process.exit(1);
   })
   .finally(async () => {
     await prisma.$disconnect();
-    console.log('🔌 Prisma desconectado.');
+    console.log('🔌 Conexión con Prisma Client cerrada de manera segura.');
   });
