@@ -11,6 +11,12 @@ const NOMBRE_LOCALIDAD = 'San Antonio de Areco';
 // const NOMBRE_LOCALIDAD = 'San Andres de Giles'; 
 // const NOMBRE_LOCALIDAD = 'Mercedes';
 // const NOMBRE_LOCALIDAD = 'Capitan Sarmiento';  
+// const NOMBRE_LOCALIDAD = 'Arrecifes';  
+// const NOMBRE_LOCALIDAD = 'Carmen de Areco';  
+// const NOMBRE_LOCALIDAD = 'Junin';  
+// const NOMBRE_LOCALIDAD = 'Ramallo';  
+// const NOMBRE_LOCALIDAD = 'Rojas';  
+// const NOMBRE_LOCALIDAD = 'Salto'; 
 
 // <-- Cambiá el calendario acá
 // const CALENDARIO_RAW = [
@@ -165,22 +171,8 @@ PROMPT: Generar listado para turnos
 ------------------------------------------
 San Antonio de Areco
 ------------------------------------------
-Generar listado similar al siguiente con las fechas y farmacias de la imagen (año y mes actual). 
-const CALENDARIO_RAW = [
-  { fecha: '2026-07-01', claveFarmacia: 'Central' },
-  { fecha: '2026-07-02', claveFarmacia: 'Del Pueblo' },
-];
-
-Mapear los nombres usando esta lista (si no se  puede mapear, informar):
-Farmacia Berolaç
-Farmacia Bauer
-Farmacia Del Pueblo
-Farmacia Fattore
-Farmacia Risolino
-Farmacia Rodríguez Scheys
-Farmacia Torra
-Farmacia Bobbett
-
+Obtener lista de tunos corriendo el siguiente script
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 8 2026-06-01 30
 ------------------------------------------
 Baradero
 ------------------------------------------
@@ -209,102 +201,7 @@ Farmacia Silvano
 ------------------------------------------
 Pergamino
 ------------------------------------------
-Generar listado similar al siguiente con las fechas y farmacias (año y mes actual). 
-const CALENDARIO_RAW = [
-  { fecha: '2026-07-01', claveFarmacia: 'Central' },
-  { fecha: '2026-07-02', claveFarmacia: 'Del Pueblo' },
-];
-
-Lista de turnos
-24/6/2026
-Rodríguez
-San Antonio
-Piergallini
-Ventola
-Biagi
-25/06
-Los Andes
-Garyulo
-Banfi
-Gaich
-Chacón
-26/06
-Picco
-Navarro
-Del Pueblo
-De Gaetani
-Trotta
-27/06
-Verdún
-Valdez
-La Licata
-Boldrini
-Panella
-28/06
-Ceccoli
-Malvinas
-Yarroch
-Galetto
-Conticello
-29/06
-Pistone
-Avenida
-Del Puente
-Schneider
-Fernández
-30/06
-Gallo
-Cosio
-Millán
-Centenario
-Seta
-
-Mapear los nombres usando esta lista (si no se  puede mapear, informar):
-FARMACIA AVENIDA
-FARMACIA DEL PUENTE
-FARMACIA PANELLA
-FARMACIA RIERA
-FARMACIA RODRIGUEZ
-FARMACIA BANFI
-FARMACIA CARNEVALE
-FARMACIA CERVANTES
-FARMACIA CHACON
-FARMACIA COLELL
-FARMACIA CONTICELLO
-FARMACIA DEL CRUCE
-FARMACIA DEL PUEBLO
-FARMACIA FENIX
-FARMACIA FERNANDEZ
-FARMACIA GAICH
-FARMACIA GARYULO
-FARMACIA LAVANDERA
-FARMACIA LOS ANDES
-FARMACIA MANZOCO
-FARMACIA MC DONNELL
-FARMACIA PAZ
-FARMACIA PEREZ
-FARMACIA PICCO
-FARMACIA PIERGALLINI
-FARMACIA RATTO
-FARMACIA RAWSON
-FARMACIA ROASENDA
-FARMACIA SAN ANTONIO
-FARMACIA SPERANZA
-FARMACIA TASSAROLO
-FARMACIA TROTTA
-FARMACIA VASCHETTI
-FARMACIA ZAGO
-FARMACIA ALCOBENDAS
-FARMACIA MASERA
-FARMACIA MARTINEZ
-FARMACIA MARIANI
-FARMACIA ANASTASINI
-FARMACIA BAGLIONI
-FARMACIA MALVINAS
-FARMACIA LOPEZ
-FARMACIA GALLI
-FARMACIA BAUZA
-FARMACIA GARDES
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 8 2026-06-01 30
 
 ------------------------------------------
 San Andrés de Giles
@@ -379,46 +276,36 @@ Tiseyra
 ------------------------------------------
 Capitan Sarmiento
 ------------------------------------------
-Generar listado similar al siguiente con las fechas y farmacias  (año y mes actual). 
-const CALENDARIO_RAW = [
-  { fecha: '2026-07-01', claveFarmacia: 'Central' },
-  { fecha: '2026-07-02', claveFarmacia: 'Del Pueblo' },
-];
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 11 2026-06-01 30
 
-LUNES	1	 	RUIZ
-MARTES	2	 	LAGORIO
-MIÉRCOLES	3	 	DEL PUEBLO
-JUEVES	4	 	PEREZ 
-VIERNES	5	 	BAVA
-SÁBADO	6	 	FOLGUERA
-DOMINGO	7	 	RUIZ
-LUNES	8	 	DEL PUEBLO
-MARTES	9	 	LAGORIO
-MIÉRCOLES	10	 	PEREZ 
-JUEVES	11	 	BAVA
-VIERNES	12	 	FOLGUERA
-SÁBADO	13	 	RUIZ
-DOMINGO	14	 	LAGORIO
-LUNES	15	 	DEL PUEBLO
-MARTES	16	 	PEREZ 
-MIÉRCOLES	17	 	BAVA
-JUEVES	18	 	FOLGUERA
-VIERNES	19	 	RUIZ
-SÁBADO	20	 	LAGORIO
-DOMINGO	21	 	DEL PUEBLO
-LUNES	22	 	PEREZ 
-MARTES	23	 	BAVA
-MIÉRCOLES	24	 	FOLGUERA
-JUEVES	25	 	RUIZ
-VIERNES	26	 	LAGORIO
-SÁBADO	27	 	DEL PUEBLO
-DOMINGO	28	 	PEREZ 
-LUNES	29	 	BAVA
+------------------------------------------
+Arrecifes
+------------------------------------------
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 10 2026-06-01 30
 
-Mapear los nombres usando esta lista (si no se  puede mapear, informar):
-Farmacia Folguera
-Farmacia Lagorio 
-Farmacia Perez
-Farmacia Ruiz 
-Farmacia del Pueblo
+------------------------------------------
+Carmen de Areco
+------------------------------------------
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 32 2026-06-01 30
+
+------------------------------------------
+Junin
+------------------------------------------
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 9 2026-06-01 30
+
+------------------------------------------
+Ramallo
+------------------------------------------
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 33 2026-06-01 30
+
+------------------------------------------
+Rojas
+------------------------------------------
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 13 2026-06-01 30
+
+------------------------------------------
+Salto
+------------------------------------------
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 74 2026-06-01 30
+
   */

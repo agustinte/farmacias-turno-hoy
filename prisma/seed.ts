@@ -5,52 +5,45 @@ const prisma = new PrismaClient();
 // ==========================================
 // CONFIGURACIÓN: MODIFICÁ ESTOS DATOS PARA OTRA LOCALIDAD
 // ==========================================
-//const NOMBRE_LOCALIDAD = 'San Antonio de Areco';
-// const NOMBRE_LOCALIDAD = 'Baradero'; 
-// const NOMBRE_LOCALIDAD = 'Pergamino'; 
-// const NOMBRE_LOCALIDAD = 'San Andres de Giles'; 
-// const NOMBRE_LOCALIDAD = 'Mercedes';
- const NOMBRE_LOCALIDAD = 'Capitan Sarmiento';  
+const NOMBRE_LOCALIDAD = 'Salto'; 
 
 // <-- Cambiá el calendario acá
 // const CALENDARIO_RAW = [
 //   { fecha: '2026-07-01', claveFarmacia: 'Central' },
 //   { fecha: '2026-07-02', claveFarmacia: 'Del Pueblo' },
 // ];
+
 const CALENDARIO_RAW = [
-  { fecha: '2026-06-01', claveFarmacia: 'Ruiz' },
-  { fecha: '2026-06-02', claveFarmacia: 'Lagorio' },
-  { fecha: '2026-06-03', claveFarmacia: 'Del Pueblo' },
-  { fecha: '2026-06-04', claveFarmacia: 'Perez' },
-  { fecha: '2026-06-05', claveFarmacia: 'Bava' },
-  { fecha: '2026-06-06', claveFarmacia: 'Folguera' },
-  { fecha: '2026-06-07', claveFarmacia: 'Ruiz' },
-
-  { fecha: '2026-06-08', claveFarmacia: 'Del Pueblo' },
-  { fecha: '2026-06-09', claveFarmacia: 'Lagorio' },
-  { fecha: '2026-06-10', claveFarmacia: 'Perez' },
-  { fecha: '2026-06-11', claveFarmacia: 'Bava' },
-  { fecha: '2026-06-12', claveFarmacia: 'Folguera' },
-  { fecha: '2026-06-13', claveFarmacia: 'Ruiz' },
-  { fecha: '2026-06-14', claveFarmacia: 'Lagorio' },
-
-  { fecha: '2026-06-15', claveFarmacia: 'Del Pueblo' },
-  { fecha: '2026-06-16', claveFarmacia: 'Perez' },
-  { fecha: '2026-06-17', claveFarmacia: 'Bava' },
-  { fecha: '2026-06-18', claveFarmacia: 'Folguera' },
-  { fecha: '2026-06-19', claveFarmacia: 'Ruiz' },
-  { fecha: '2026-06-20', claveFarmacia: 'Lagorio' },
-  { fecha: '2026-06-21', claveFarmacia: 'Del Pueblo' },
-
-  { fecha: '2026-06-22', claveFarmacia: 'Perez' },
-  { fecha: '2026-06-23', claveFarmacia: 'Bava' },
-  { fecha: '2026-06-24', claveFarmacia: 'Folguera' },
-  { fecha: '2026-06-25', claveFarmacia: 'Ruiz' },
-  { fecha: '2026-06-26', claveFarmacia: 'Lagorio' },
-  { fecha: '2026-06-27', claveFarmacia: 'Del Pueblo' },
-  { fecha: '2026-06-28', claveFarmacia: 'Perez' },
-
-  { fecha: '2026-06-29', claveFarmacia: 'Bava' },
+  { fecha: '2026-06-01', claveFarmacia: 'Canal' },
+  { fecha: '2026-06-02', claveFarmacia: 'Capaldi' },
+  { fecha: '2026-06-03', claveFarmacia: 'Sole' },
+  { fecha: '2026-06-04', claveFarmacia: 'Conti' },
+  { fecha: '2026-06-05', claveFarmacia: 'Tugues' },
+  { fecha: '2026-06-06', claveFarmacia: 'Del Pueblo' },
+  { fecha: '2026-06-07', claveFarmacia: 'Galvagni' },
+  { fecha: '2026-06-08', claveFarmacia: 'Mariani' },
+  { fecha: '2026-06-09', claveFarmacia: 'Migliaro' },
+  { fecha: '2026-06-10', claveFarmacia: 'Ortelli' },
+  { fecha: '2026-06-11', claveFarmacia: 'Sole' },
+  { fecha: '2026-06-12', claveFarmacia: 'Tugues' },
+  { fecha: '2026-06-13', claveFarmacia: 'Arroyo' },
+  { fecha: '2026-06-14', claveFarmacia: 'Belmartino' },
+  { fecha: '2026-06-15', claveFarmacia: 'Colombi' },
+  { fecha: '2026-06-16', claveFarmacia: 'Capaldi' },
+  { fecha: '2026-06-17', claveFarmacia: 'Conti' },
+  { fecha: '2026-06-18', claveFarmacia: 'Coradello' },
+  { fecha: '2026-06-19', claveFarmacia: 'Del Pueblo' },
+  { fecha: '2026-06-20', claveFarmacia: 'Galvagni' },
+  { fecha: '2026-06-21', claveFarmacia: 'Grossi' },
+  { fecha: '2026-06-22', claveFarmacia: 'Migliaro' },
+  { fecha: '2026-06-23', claveFarmacia: 'Ortelli' },
+  { fecha: '2026-06-24', claveFarmacia: 'Colombi' },
+  { fecha: '2026-06-25', claveFarmacia: 'Tugues' },
+  { fecha: '2026-06-26', claveFarmacia: 'Arroyo' },
+  { fecha: '2026-06-27', claveFarmacia: 'Belmartino' },
+  { fecha: '2026-06-28', claveFarmacia: 'Canal' },
+  { fecha: '2026-06-29', claveFarmacia: 'Sole' },
+  { fecha: '2026-06-30', claveFarmacia: 'Conti' },
 ];
 
 // ==========================================
