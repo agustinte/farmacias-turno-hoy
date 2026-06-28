@@ -6,7 +6,7 @@ import FarmaciaDeTurnoCard from './FarmaciaDeTurnoCard';
 import FarmaciasGoogleMap from './FarmaciasGoogleMap';
 import { prisma } from '@/prisma';
 
-export const dynamic = 'force-static';
+export const revalidate = 3200;
 
 //const prisma = new PrismaClient();
 
