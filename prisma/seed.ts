@@ -5,45 +5,50 @@ const prisma = new PrismaClient();
 // ==========================================
 // CONFIGURACIÓN: MODIFICÁ ESTOS DATOS PARA OTRA LOCALIDAD
 // ==========================================
-const NOMBRE_LOCALIDAD = 'Salto'; 
-
-// <-- Cambiá el calendario acá
-// const CALENDARIO_RAW = [
-//   { fecha: '2026-07-01', claveFarmacia: 'Central' },
-//   { fecha: '2026-07-02', claveFarmacia: 'Del Pueblo' },
-// ];
+ const NOMBRE_LOCALIDAD = 'San Antonio de Areco';
+// const NOMBRE_LOCALIDAD = 'Pergamino'; 
+// const NOMBRE_LOCALIDAD = 'San Andres de Giles'; 
+// const NOMBRE_LOCALIDAD = 'Mercedes';
+// const NOMBRE_LOCALIDAD = 'Arrecifes';  
+// const NOMBRE_LOCALIDAD = 'Carmen de Areco';  
+// const NOMBRE_LOCALIDAD = 'Junin';  
+// const NOMBRE_LOCALIDAD = 'Ramallo';  
+// const NOMBRE_LOCALIDAD = 'Rojas';  
+// const NOMBRE_LOCALIDAD = 'Salto';
+// const NOMBRE_LOCALIDAD = 'Mar del Plata';  
 
 const CALENDARIO_RAW = [
-  { fecha: '2026-06-01', claveFarmacia: 'Canal' },
-  { fecha: '2026-06-02', claveFarmacia: 'Capaldi' },
-  { fecha: '2026-06-03', claveFarmacia: 'Sole' },
-  { fecha: '2026-06-04', claveFarmacia: 'Conti' },
-  { fecha: '2026-06-05', claveFarmacia: 'Tugues' },
-  { fecha: '2026-06-06', claveFarmacia: 'Del Pueblo' },
-  { fecha: '2026-06-07', claveFarmacia: 'Galvagni' },
-  { fecha: '2026-06-08', claveFarmacia: 'Mariani' },
-  { fecha: '2026-06-09', claveFarmacia: 'Migliaro' },
-  { fecha: '2026-06-10', claveFarmacia: 'Ortelli' },
-  { fecha: '2026-06-11', claveFarmacia: 'Sole' },
-  { fecha: '2026-06-12', claveFarmacia: 'Tugues' },
-  { fecha: '2026-06-13', claveFarmacia: 'Arroyo' },
-  { fecha: '2026-06-14', claveFarmacia: 'Belmartino' },
-  { fecha: '2026-06-15', claveFarmacia: 'Colombi' },
-  { fecha: '2026-06-16', claveFarmacia: 'Capaldi' },
-  { fecha: '2026-06-17', claveFarmacia: 'Conti' },
-  { fecha: '2026-06-18', claveFarmacia: 'Coradello' },
-  { fecha: '2026-06-19', claveFarmacia: 'Del Pueblo' },
-  { fecha: '2026-06-20', claveFarmacia: 'Galvagni' },
-  { fecha: '2026-06-21', claveFarmacia: 'Grossi' },
-  { fecha: '2026-06-22', claveFarmacia: 'Migliaro' },
-  { fecha: '2026-06-23', claveFarmacia: 'Ortelli' },
-  { fecha: '2026-06-24', claveFarmacia: 'Colombi' },
-  { fecha: '2026-06-25', claveFarmacia: 'Tugues' },
-  { fecha: '2026-06-26', claveFarmacia: 'Arroyo' },
-  { fecha: '2026-06-27', claveFarmacia: 'Belmartino' },
-  { fecha: '2026-06-28', claveFarmacia: 'Canal' },
-  { fecha: '2026-06-29', claveFarmacia: 'Sole' },
-  { fecha: '2026-06-30', claveFarmacia: 'Conti' },
+  { fecha: '2026-08-01', claveFarmacia: 'Farmacia Torra' },
+  { fecha: '2026-08-02', claveFarmacia: 'Farmacia Fattore' },
+  { fecha: '2026-08-03', claveFarmacia: 'Farmacia Bobbett' },
+  { fecha: '2026-08-04', claveFarmacia: 'Farmacia Bauer' },
+  { fecha: '2026-08-05', claveFarmacia: 'Farmacia Del Pueblo' },
+  { fecha: '2026-08-06', claveFarmacia: 'Farmacia Fattore' },
+  { fecha: '2026-08-07', claveFarmacia: 'Farmacia Bauer' },
+  { fecha: '2026-08-08', claveFarmacia: 'Farmacia Risolino' },
+  { fecha: '2026-08-09', claveFarmacia: 'Farmacia Torra' },
+  { fecha: '2026-08-10', claveFarmacia: 'Farmacia Bauer' },
+  { fecha: '2026-08-11', claveFarmacia: 'Farmacia Bobbett' },
+  { fecha: '2026-08-12', claveFarmacia: 'Farmacia Rodríguez Scheys' },
+  { fecha: '2026-08-13', claveFarmacia: 'Farmacia Del Pueblo' },
+  { fecha: '2026-08-14', claveFarmacia: 'Farmacia Fattore' },
+  { fecha: '2026-08-15', claveFarmacia: 'Farmacia Bauer' },
+  { fecha: '2026-08-16', claveFarmacia: 'Farmacia Risolino' },
+  { fecha: '2026-08-17', claveFarmacia: 'Farmacia Torra' },
+  { fecha: '2026-08-18', claveFarmacia: 'Farmacia Del Pueblo' },
+  { fecha: '2026-08-19', claveFarmacia: 'Farmacia Bobbett' },
+  { fecha: '2026-08-20', claveFarmacia: 'Farmacia Rodríguez Scheys' },
+  { fecha: '2026-08-21', claveFarmacia: 'Farmacia Del Pueblo' },
+  { fecha: '2026-08-22', claveFarmacia: 'Farmacia Fattore' },
+  { fecha: '2026-08-23', claveFarmacia: 'Farmacia Bauer' },
+  { fecha: '2026-08-24', claveFarmacia: 'Farmacia Risolino' },
+  { fecha: '2026-08-25', claveFarmacia: 'Farmacia Torra' },
+  { fecha: '2026-08-26', claveFarmacia: 'Farmacia Del Pueblo' },
+  { fecha: '2026-08-27', claveFarmacia: 'Farmacia Bobbett' },
+  { fecha: '2026-08-28', claveFarmacia: 'Farmacia Rodríguez Scheys' },
+  { fecha: '2026-08-29', claveFarmacia: 'Farmacia Del Pueblo' },
+  { fecha: '2026-08-30', claveFarmacia: 'Farmacia Fattore' },
+  { fecha: '2026-08-31', claveFarmacia: 'Farmacia Bauer' },
 ];
 
 // ==========================================

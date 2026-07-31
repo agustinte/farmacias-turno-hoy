@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import LocalidadesList from '@/components/LocalidadesList';
 import { prisma } from '@/prisma';
 
 //import { PrismaClient } from '@prisma/client';
@@ -14,6 +14,12 @@ export default async function Home() {
   const localidades = await prisma.localidad.findMany({
     orderBy: { nombre: 'asc' },
   });
+
+  const serializedLocalidades = localidades.map((l) => ({
+    id: String(l.id),
+    nombre: l.nombre,
+    slug: l.slug,
+  }));
 
   return (
     <main className="min-h-screen bg-gray-50">
@@ -55,66 +61,7 @@ export default async function Home() {
 
       {/* LOCALIDADES */}
       <section className="max-w-6xl mx-auto px-6 py-10">
-        <div className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden">
-          {/* HEADER */}
-          <div className="border-b border-gray-100 px-6 py-5 bg-white">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-              <div>
-                <h2 className="text-2xl font-bold text-[#0F2343]">
-                  Seleccioná tu localidad
-                </h2>
-
-                <p className="text-sm text-gray-500 mt-1">
-                  Accedé al listado actualizado de farmacias disponibles.
-                </p>
-              </div>
-
-              <div className="text-sm font-medium text-gray-500">
-                {localidades.length} localidades disponibles
-              </div>
-            </div>
-          </div>
-
-          {/* GRID */}
-          <div className="p-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {localidades.map((loc) => (
-                <Link
-                  key={loc.id}
-                  href={`/${loc.slug}/farmacias-de-turno`}
-                  className="
-                    group
-                    rounded-2xl
-                    border
-                    border-gray-200
-                    bg-white
-                    p-5
-                    hover:border-green-300
-                    hover:bg-green-50
-                    hover:shadow-md
-                    transition-all
-                  "
-                >
-                  <div className="flex items-center justify-between gap-3">
-                    <div>
-                      <h3 className="font-bold text-[#0F2343] text-lg group-hover:text-green-700">
-                        {loc.nombre}
-                      </h3>
-
-                      <p className="text-sm text-gray-500 mt-1">
-                        Ver farmacias de turno
-                      </p>
-                    </div>
-
-                    <div className="text-green-600 font-semibold text-sm whitespace-nowrap">
-                      Ver →
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
+        <LocalidadesList localidades={serializedLocalidades} />
       </section>
 
       {/* CONTENIDO SEO */}

@@ -16,7 +16,8 @@ const NOMBRE_LOCALIDAD = 'San Antonio de Areco';
 // const NOMBRE_LOCALIDAD = 'Junin';  
 // const NOMBRE_LOCALIDAD = 'Ramallo';  
 // const NOMBRE_LOCALIDAD = 'Rojas';  
-// const NOMBRE_LOCALIDAD = 'Salto'; 
+// const NOMBRE_LOCALIDAD = 'Salto';
+// const NOMBRE_LOCALIDAD = 'Mar del Plata';  
 
 // <-- Cambiá el calendario acá
 // const CALENDARIO_RAW = [
@@ -172,7 +173,7 @@ PROMPT: Generar listado para turnos
 San Antonio de Areco
 ------------------------------------------
 Obtener lista de tunos corriendo el siguiente script
-C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 8 2026-06-01 30
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 8 2026-07-01 31
 ------------------------------------------
 Baradero
 ------------------------------------------
@@ -201,7 +202,7 @@ Farmacia Silvano
 ------------------------------------------
 Pergamino
 ------------------------------------------
-C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 8 2026-06-01 30
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 1 2026-07-01 31
 
 ------------------------------------------
 San Andrés de Giles
@@ -276,36 +277,41 @@ Tiseyra
 ------------------------------------------
 Capitan Sarmiento
 ------------------------------------------
-C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 11 2026-06-01 30
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 11 2026-07-01 31
 
 ------------------------------------------
 Arrecifes
 ------------------------------------------
-C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 10 2026-06-01 30
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 10 2026-07-01 31
 
 ------------------------------------------
 Carmen de Areco
 ------------------------------------------
-C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 32 2026-06-01 30
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 32 2026-07-01 31
 
 ------------------------------------------
 Junin
 ------------------------------------------
-C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 9 2026-06-01 30
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 9 2026-07-01 31
 
 ------------------------------------------
 Ramallo
 ------------------------------------------
-C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 33 2026-06-01 30
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 33 2026-07-01 31
 
 ------------------------------------------
 Rojas
 ------------------------------------------
-C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 13 2026-06-01 30
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 13 2026-07-01 31
 
 ------------------------------------------
 Salto
 ------------------------------------------
-C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 74 2026-06-01 30
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 74 2026-07-01 31
+
+------------------------------------------
+Mar del Plata
+------------------------------------------
+C:\_data\sfdt\farmacias-turno\automate>node getDataMDQ.js
 
   */
