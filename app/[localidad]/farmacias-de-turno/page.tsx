@@ -228,6 +228,53 @@ export default async function LocalidadPage({ params }: Props) {
         </div>
       </section>
 
+      {/* SECCIÓN PREGUNTAS FRECUENTES (ACORDEONES) */}
+      <section className="mt-12 text-left">
+        <h3 className="text-xl font-bold text-slate-800 mb-4 flex items-center">
+          <svg className="w-6 h-6 mr-2 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          Preguntas frecuentes
+        </h3>
+        <div className="space-y-3">
+          <details className="bg-white border border-slate-100 rounded-2xl p-4">
+            <summary className="list-none cursor-pointer text-[15px] font-semibold text-slate-800 flex items-center justify-between">
+              <div className="flex items-center">
+                <span>¿Cómo saber qué farmacia de turno está abierta hoy en {nombreLocalidad}?</span>
+              </div>
+              <span className="ml-4 text-slate-400">+</span>
+            </summary>
+            <div className="mt-3 text-slate-600 text-[14px] leading-relaxed">
+              El servicio de guardia de las farmacias cambia diariamente para garantizar atención médica las 24 horas. En nuestra plataforma actualizamos de forma continua el listado de <strong className="text-slate-800">farmacias de turno hoy</strong>, detallando la dirección exacta, el teléfono de contacto y el mapa interactivo para que sepa exactamente cuál está atendiendo en este momento en la localidad.
+            </div>
+          </details>
+
+          <details className="bg-white border border-slate-100 rounded-2xl p-4">
+            <summary className="list-none cursor-pointer text-[15px] font-semibold text-slate-800 flex items-center justify-between">
+              <div className="flex items-center">
+                <span>¿Cuáles son los horarios de las farmacias de guardia en {nombreLocalidad}?</span>
+              </div>
+              <span className="ml-4 text-slate-400">+</span>
+            </summary>
+            <div className="mt-3 text-slate-600 text-[14px] leading-relaxed">
+              Las farmacias de turno cubren un horario extendido obligatorio que asegura la dispensación de medicamentos fuera del horario comercial habitual. Si necesita una <strong className="text-slate-800">farmacia de turno en {nombreLocalidad}</strong>, nuestra base de datos le mostrará las que están operativas durante la noche, fines de semana y feriados obligatorios.
+            </div>
+          </details>
+
+          <details className="bg-white border border-slate-100 rounded-2xl p-4">
+            <summary className="list-none cursor-pointer text-[15px] font-semibold text-slate-800 flex items-center justify-between">
+              <div className="flex items-center">
+                <span>¿Qué farmacias están abiertas hoy fuera del horario comercial?</span>
+              </div>
+              <span className="ml-4 text-slate-400">+</span>
+            </summary>
+            <div className="mt-3 text-slate-600 text-[14px] leading-relaxed">
+              Además de las farmacias que cumplen el turno de guardia obligatorio de 24 horas, existen establecimientos con horarios extendidos. Para evitar confusiones o traslados innecesarios, consulte la sección de ubicación exacta en tiempo real antes de salir de su hogar.
+            </div>
+          </details>
+        </div>
+      </section>
+
       {/* Footer generalizado: se elimina el footer local para evitar duplicados */}
     </main>
   );
