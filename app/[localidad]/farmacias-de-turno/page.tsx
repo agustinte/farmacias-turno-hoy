@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import FarmaciaInfo from './FarmaciaInfo';
 import FarmaciaDeTurnoCard from './FarmaciaDeTurnoCard';
 import FarmaciasGoogleMap from './FarmaciasGoogleMap';
+import ShareButton from '@/components/ShareButton';
 import { prisma } from '@/prisma';
 
 export const revalidate = 3200;
@@ -123,12 +124,23 @@ export default async function LocalidadPage({ params }: Props) {
 
       {/* HEADER DE LA PÁGINA */}
       <header className="text-center mb-6">
-        <h1 className="text-3xl font-extrabold text-slate-800 mb-1">
-          Farmacia de turno hoy en {nombreLocalidad}
-        </h1>
-        <p className="text-sm text-slate-500 font-medium">
-          Actualizado el {ahora.toLocaleDateString('es-AR')}
-        </p>
+        <div className="flex items-center justify-center sm:justify-between gap-4">
+          <div>
+            <h1 className="text-3xl font-extrabold text-slate-800 mb-1">
+              Farmacia de turno hoy en {nombreLocalidad}
+            </h1>
+            <p className="text-sm text-slate-500 font-medium">
+              Actualizado el {ahora.toLocaleDateString('es-AR')}
+            </p>
+          </div>
+          <div>
+            <ShareButton
+              shareText={`Farmacia de turno hoy en ${nombreLocalidad}`}
+              shareUrl={pageUrl}
+              ariaLabel={`Compartir Farmacias de turno en ${nombreLocalidad}`}
+            />
+          </div>
+        </div>
       </header>
 
       {/* SECCIÓN INFORMATIVA (img1) */}

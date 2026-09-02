@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import ShareButton from '@/components/ShareButton';
 
 // Definimos los tipos para las props del componente
 interface Farmacia {
@@ -43,6 +44,8 @@ Teléfono: ${farmacia.telefono || 'No disponible'}
     setTimeout(() => setCopied(false), 2000); // Reset after 2 seconds
   };
 
+  const shareText = `Farmacia de turno: ${farmacia.nombre}\nDirección: ${farmacia.direccion}\nTeléfono: ${farmacia.telefono || 'No disponible'}`;
+
   return (
     <div className="flex items-center gap-4 mb-4 text-left w-full">
       <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
@@ -58,13 +61,16 @@ Teléfono: ${farmacia.telefono || 'No disponible'}
           {farmacia.nombre}
         </h2>
       </div>
-      <button
-        onClick={handleCopy}
-        aria-label="Copiar información de la farmacia"
-        className="text-slate-500 hover:text-green-600 transition-colors p-2"
-      >
-        {copied ? <CheckIcon /> : <CopyIcon />}
-      </button>
+      <div className="flex items-center gap-2">
+        <ShareButton shareText={shareText} ariaLabel="Compartir información de la farmacia" />
+        <button
+          onClick={handleCopy}
+          aria-label="Copiar información de la farmacia"
+          className="text-slate-500 hover:text-green-600 transition-colors p-2"
+        >
+          {copied ? <CheckIcon /> : <CopyIcon />}
+        </button>
+      </div>
     </div>
   );
 }
