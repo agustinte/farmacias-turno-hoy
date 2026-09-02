@@ -31,14 +31,50 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { localidad } = await params;
   const nombre = localidad.replace(/-/g, ' ');
   const nombreFormateado = nombre.charAt(0).toUpperCase() + nombre.slice(1);
-
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') ?? '';
   const canonical = siteUrl ? `${siteUrl}/${localidad}/farmacias-de-turno` : undefined;
 
+  const title = `Farmacia de Turno Hoy en ${nombreFormateado} | Horarios y Dirección`;
+  const description = `Consulta la farmacia que está de turno hoy en ${nombreFormateado}.`;
+
+  const ogImagePath = '/og-default.svg';
+  const fallbackImagePath = '/vercel.svg';
+  const ogImage = siteUrl ? `${siteUrl}${ogImagePath}` : ogImagePath;
+  const fallbackImage = siteUrl ? `${siteUrl}${fallbackImagePath}` : fallbackImagePath;
+
+  const openGraph = {
+    title,
+    description,
+    url: canonical,
+    siteName: 'Farmacias de Turno Hoy',
+    images: [
+      {
+        url: ogImage,
+        width: 1200,
+        height: 630,
+        alt: `Farmacias de turno en ${nombreFormateado}`,
+      },
+      {
+        url: fallbackImage,
+        alt: 'Farmacias de Turno',
+      },
+    ],
+    type: 'website',
+  };
+
+  const twitter = {
+    card: 'summary_large_image',
+    title,
+    description,
+    images: [ogImage, fallbackImage],
+  };
+
   return {
-    title: `Farmacia de Turno Hoy en ${nombreFormateado} | Horarios y Dirección`,
-    description: `Consulta la farmacia que está de turno hoy en ${nombreFormateado}.`,
+    title,
+    description,
     ...(canonical ? { alternates: { canonical } } : {}),
+    openGraph,
+    twitter,
   };
 }
 
