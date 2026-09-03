@@ -21,7 +21,7 @@ const ShareIcon = () => (
 );
 
 const CheckIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
   </svg>
 );
@@ -65,9 +65,11 @@ export default function ShareButton({
 
   return (
     <button
+      type="button"
       onClick={handleShare}
       aria-label={ariaLabel}
-      className={`${className || "text-slate-500 hover:text-green-600 transition-colors p-2"}`}
+      title={shared ? "Compartido" : ariaLabel}
+      className={`${className || "inline-flex h-7 w-7 items-center justify-center rounded-full border border-green-700 bg-green-600 p-0 text-white shadow-md shadow-green-200 transition-all hover:bg-green-700 hover:shadow-lg hover:shadow-green-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-600 focus-visible:ring-offset-2 active:scale-95"}`}
     >
       {shared ? <CheckIcon /> : <ShareIcon />}
     </button>

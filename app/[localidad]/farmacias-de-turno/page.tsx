@@ -15,6 +15,16 @@ interface Props {
   params: Promise<{ localidad: string }>;
 }
 
+interface JsonLdNode {
+  '@type': string;
+  '@id'?: string;
+  [property: string]: unknown;
+}
+
+function serializeJsonLd(value: unknown) {
+  return JSON.stringify(value).replace(/</g, '\\u003c');
+}
+
 export async function generateStaticParams() {
   const localidades = await prisma.localidad.findMany({
     select: {
@@ -97,7 +107,8 @@ export default async function LocalidadPage({ params }: Props) {
           fechaFin: { gte: ahora }
         }
       }
-    }
+    },
+    orderBy: [{ nombre: 'asc' }, { id: 'asc' }],
   });
 
   const farmaciaHoy = farmaciasHoy.length > 0 ? farmaciasHoy[0] : null;
@@ -124,30 +135,73 @@ export default async function LocalidadPage({ params }: Props) {
 
   const nombreLocalidad = localidadData.nombre;
 
-  // Preparar JSON-LD para Schema.org: si hay farmacia de turno, marcamos esa farmacia; si no, marcamos la página
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') ?? '';
   const pageUrl = siteUrl ? `${siteUrl}/${localidad}/farmacias-de-turno` : undefined;
 
-  const jsonLd: any = farmaciaHoy
-    ? {
-        '@context': 'https://schema.org',
-        '@type': 'Pharmacy',
-        name: farmaciaHoy.nombre,
-        address: {
-          '@type': 'PostalAddress',
-          streetAddress: farmaciaHoy.direccion || undefined,
-          addressLocality: nombreLocalidad,
-          addressCountry: 'AR',
+  const pharmacyNodes: JsonLdNode[] = farmaciasHoy.map((farmacia) => {
+    const pharmacyId = pageUrl ? `${pageUrl}#farmacia-${farmacia.id}` : undefined;
+    const telephone = farmacia.telefono && farmacia.telefono !== '-' ? farmacia.telefono : undefined;
+    const hasCoordinates = Number.isFinite(farmacia.lat) && Number.isFinite(farmacia.lng);
+
+    return {
+      '@type': 'Pharmacy',
+      ...(pharmacyId && { '@id': pharmacyId }),
+      name: farmacia.nombre,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: farmacia.direccion,
+        addressLocality: nombreLocalidad,
+        addressCountry: 'AR',
+      },
+      ...(telephone && { telephone }),
+      ...(hasCoordinates && {
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: farmacia.lat,
+          longitude: farmacia.lng,
         },
-        ...(farmaciaHoy.telefono && { telephone: farmaciaHoy.telefono }),
-        ...(pageUrl && { url: pageUrl }),
+      }),
+      ...(pageUrl && { url: pageUrl }),
+      areaServed: nombreLocalidad,
+    };
+  });
+
+  const itemListId = pageUrl ? `${pageUrl}#farmacias-de-turno` : undefined;
+  const itemListNode: JsonLdNode | undefined = pharmacyNodes.length > 1
+    ? {
+        '@type': 'ItemList',
+        ...(itemListId && { '@id': itemListId }),
+        name: `Farmacias de turno hoy en ${nombreLocalidad}`,
+        itemListElement: pharmacyNodes.map((pharmacy, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          ...(pharmacy['@id'] ? { item: { '@id': pharmacy['@id'] } } : { item: pharmacy }),
+        })),
       }
-    : {
-        '@context': 'https://schema.org',
-        '@type': 'WebPage',
-        name: `Farmacia de turno hoy en ${nombreLocalidad}`,
-        ...(pageUrl && { url: pageUrl }),
-      };
+    : undefined;
+
+  const webPageNode: JsonLdNode = {
+    '@type': 'WebPage',
+    ...(pageUrl && { '@id': pageUrl }),
+    name: `Farmacia de turno hoy en ${nombreLocalidad}`,
+    description: `Consulta la farmacia de turno hoy en ${nombreLocalidad}, con dirección, teléfono y ubicación.`,
+    ...(pageUrl && { url: pageUrl }),
+    inLanguage: 'es-AR',
+    ...(itemListNode
+      ? { mainEntity: itemListId ? { '@id': itemListId } : itemListNode }
+      : pharmacyNodes[0]
+        ? { mainEntity: pharmacyNodes[0]['@id'] ? { '@id': pharmacyNodes[0]['@id'] } : pharmacyNodes[0] }
+        : {}),
+  };
+
+  const jsonLd: { '@context': string; '@graph': JsonLdNode[] } = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      webPageNode,
+      ...(itemListNode ? [itemListNode] : []),
+      ...pharmacyNodes,
+    ],
+  };
 
   return (
     <main className="w-full max-w-4xl mx-auto p-4 sm:p-8 font-sans text-slate-900 bg-white min-h-screen">
@@ -155,13 +209,13 @@ export default async function LocalidadPage({ params }: Props) {
       {/* JSON-LD para Schema.org */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
 
       {/* HEADER DE LA PÁGINA */}
       <header className="text-center mb-6">
-        <div className="flex items-center justify-center sm:justify-between gap-4">
-          <div>
+        <div className="relative flex flex-col items-center justify-center gap-4 sm:min-h-11">
+          <div className="text-center">
             <h1 className="text-3xl font-extrabold text-slate-800 mb-1">
               Farmacia de turno hoy en {nombreLocalidad}
             </h1>
@@ -169,7 +223,7 @@ export default async function LocalidadPage({ params }: Props) {
               Actualizado el {ahora.toLocaleDateString('es-AR')}
             </p>
           </div>
-          <div>
+          <div className="sm:absolute sm:right-0 sm:top-1/2 sm:-translate-y-1/2">
             <ShareButton
               shareText={`Farmacia de turno hoy en ${nombreLocalidad}`}
               shareUrl={pageUrl}
