@@ -275,6 +275,18 @@ export default async function LocalidadPage({ params }: Props) {
         )}
       </div>
 
+      <aside className="mb-6 rounded-2xl border border-amber-200 bg-amber-50 p-5 text-left shadow-sm">
+        <h2 className="text-base font-bold text-slate-800">
+          ¿Sos dueño de una farmacia en esta localidad?
+        </h2>
+        <p className="mt-1 text-sm leading-relaxed text-slate-600">
+          Multiplicá tus ventas y recibí consultas directas por WhatsApp cuando estés de turno.{' '}
+          <a href="/publicidad" className="font-semibold text-amber-700 underline underline-offset-2 hover:text-amber-900">
+            Publicidad
+          </a>
+        </p>
+      </aside>
+
       <div className="bg-[#f8fafc] border-l-4 border-slate-300 p-5 rounded-r-2xl mb-6 text-left">
         <p className="text-[14px] text-slate-600 leading-relaxed italic">
           * El turno es de <strong className="text-slate-800">24 horas</strong> y rige <strong className="text-slate-800">a partir de las 8:00 AM</strong> del día indicado hasta las 8:00 AM del día siguiente.
