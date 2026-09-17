@@ -282,7 +282,7 @@ export default async function LocalidadPage({ params }: Props) {
         <p className="mt-1 text-sm leading-relaxed text-slate-600">
           Multiplicá tus ventas y recibí consultas directas por WhatsApp cuando estés de turno.{' '}
           <a href="/publicidad" className="font-semibold text-amber-700 underline underline-offset-2 hover:text-amber-900">
-            Publicidad
+            Publicite aquí
           </a>
         </p>
       </aside>
