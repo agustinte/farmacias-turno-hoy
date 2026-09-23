@@ -223,27 +223,15 @@ export default async function LocalidadPage({ params }: Props) {
               Actualizado el {ahora.toLocaleDateString('es-AR')}
             </p>
           </div>
-          <div className="sm:absolute sm:right-0 sm:top-1/2 sm:-translate-y-1/2">
+          {/* <div className="sm:absolute sm:right-0 sm:top-1/2 sm:-translate-y-1/2">
             <ShareButton
               shareText={`Farmacia de turno hoy en ${nombreLocalidad}`}
               shareUrl={pageUrl}
               ariaLabel={`Compartir Farmacias de turno en ${nombreLocalidad}`}
             />
-          </div>
+          </div> */}
         </div>
       </header>
-
-      {/* SECCIÓN INFORMATIVA (img1) */}
-      <section className="mb-8 p-5 bg-[#f0fff4] border border-[#c6f6d5] rounded-2xl flex items-start shadow-sm">
-        <div className="mr-4 mt-0.5">
-          <svg className="w-6 h-6 text-[#38a169]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-          </svg>
-        </div>
-        <p className="text-[14.5px] text-slate-700 leading-relaxed italic">
-          Servicio rápido de consulta de <strong className="text-slate-800">Farmacias de Turno en {nombreLocalidad}</strong>. Encontrará en tiempo real cuál es la <strong className="text-slate-800">Farmacia de Guardia</strong> con servicio <strong className="text-slate-800">turno 24 horas</strong>. Consulte la dirección, el teléfono y la ubicación exacta para recibir atención farmacéutica inmediata.
-        </p>
-      </section>
 
       {/* CARD PRINCIPAL */}
       <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border-t-4 border-[#2ecc71] mb-4 min-h-[200px] flex flex-col justify-center">
@@ -289,13 +277,25 @@ export default async function LocalidadPage({ params }: Props) {
 
       <div className="bg-[#f8fafc] border-l-4 border-slate-300 p-5 rounded-r-2xl mb-6 text-left">
         <p className="text-[14px] text-slate-600 leading-relaxed italic">
-          * El turno es de <strong className="text-slate-800">24 horas</strong> y rige <strong className="text-slate-800">a partir de las 8:00 AM</strong> del día indicado hasta las 8:00 AM del día siguiente.
+          * El turno es de <strong className="text-slate-800">24 horas</strong> y rige <strong className="text-slate-800">a partir de las 8:30 AM</strong> del día indicado hasta las 8:30 AM del día siguiente.
         </p>
       </div>
 
+      {/* SECCIÓN INFORMATIVA (img1) */}
+      <section className="mb-8 p-5 bg-[#f0fff4] border border-[#c6f6d5] rounded-2xl flex items-start shadow-sm">
+        <div className="mr-4 mt-0.5">
+          <svg className="w-6 h-6 text-[#38a169]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <p className="text-[14.5px] text-slate-700 leading-relaxed italic">
+          Servicio rápido de consulta de <strong className="text-slate-800">Farmacias de Turno en {nombreLocalidad}</strong>. Encontrará en tiempo real cuál es la <strong className="text-slate-800">Farmacia de Guardia</strong> con servicio <strong className="text-slate-800">turno 24 horas</strong>. Consulte la dirección, el teléfono y la ubicación exacta para recibir atención farmacéutica inmediata.
+        </p>
+      </section>
+
       {/* SECCIÓN PRÓXIMOS TURNOS */}
       {proximosTurnos.length > 0 && (
-        <section className="mt-12 text-left">
+        <section className="mt-6 text-left">
           <h3 className="text-xl font-bold text-slate-800 mb-5 px-1 flex items-center">
             <svg className="w-5 h-5 mr-2 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-4 4V3m-6 4h12M6 11h12M6 15h12M6 19h12"></path>

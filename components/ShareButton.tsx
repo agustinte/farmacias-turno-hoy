@@ -49,17 +49,23 @@ export default function ShareButton({
     const text = shareText ?? "";
     const url = shareUrl ?? (typeof window !== "undefined" ? window.location.href : "");
     const titleFinal = title ?? undefined;
+    const nav: any = navigator;
 
-    try {
-      const nav: any = navigator;
-      if (nav && typeof nav.share === "function") {
+    if (nav && typeof nav.share === "function") {
+      setOpen(false);
+
+      try {
         await nav.share({ title: titleFinal, text: text || undefined, url: url || undefined });
         setShared(true);
         setTimeout(() => setShared(false), 2000);
         return;
+      } catch (error: any) {
+        const isAbortError = error?.name === "AbortError" || error?.code === 20;
+
+        if (isAbortError) {
+          return;
+        }
       }
-    } catch (e) {
-      // fallthrough to native fallback modal below
     }
 
     setOpen(true);
