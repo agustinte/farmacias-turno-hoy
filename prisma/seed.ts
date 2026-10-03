@@ -5,51 +5,158 @@ const prisma = new PrismaClient();
 // ==========================================
 // CONFIGURACIÓN: MODIFICÁ ESTOS DATOS PARA OTRA LOCALIDAD
 // ==========================================
- const NOMBRE_LOCALIDAD = 'San Antonio de Areco';
-// const NOMBRE_LOCALIDAD = 'Pergamino'; 
-// const NOMBRE_LOCALIDAD = 'San Andres de Giles'; 
-// const NOMBRE_LOCALIDAD = 'Mercedes';
-// const NOMBRE_LOCALIDAD = 'Arrecifes';  
-// const NOMBRE_LOCALIDAD = 'Carmen de Areco';  
-// const NOMBRE_LOCALIDAD = 'Junin';  
-// const NOMBRE_LOCALIDAD = 'Ramallo';  
-// const NOMBRE_LOCALIDAD = 'Rojas';  
-// const NOMBRE_LOCALIDAD = 'Salto';
-// const NOMBRE_LOCALIDAD = 'Mar del Plata';  
+  
+const NOMBRE_LOCALIDAD = 'San Isidro';  
 
 const CALENDARIO_RAW = [
-  { fecha: '2026-08-01', claveFarmacia: 'Farmacia Torra' },
-  { fecha: '2026-08-02', claveFarmacia: 'Farmacia Fattore' },
-  { fecha: '2026-08-03', claveFarmacia: 'Farmacia Bobbett' },
-  { fecha: '2026-08-04', claveFarmacia: 'Farmacia Bauer' },
-  { fecha: '2026-08-05', claveFarmacia: 'Farmacia Del Pueblo' },
-  { fecha: '2026-08-06', claveFarmacia: 'Farmacia Fattore' },
-  { fecha: '2026-08-07', claveFarmacia: 'Farmacia Bauer' },
-  { fecha: '2026-08-08', claveFarmacia: 'Farmacia Risolino' },
-  { fecha: '2026-08-09', claveFarmacia: 'Farmacia Torra' },
-  { fecha: '2026-08-10', claveFarmacia: 'Farmacia Bauer' },
-  { fecha: '2026-08-11', claveFarmacia: 'Farmacia Bobbett' },
-  { fecha: '2026-08-12', claveFarmacia: 'Farmacia Rodríguez Scheys' },
-  { fecha: '2026-08-13', claveFarmacia: 'Farmacia Del Pueblo' },
-  { fecha: '2026-08-14', claveFarmacia: 'Farmacia Fattore' },
-  { fecha: '2026-08-15', claveFarmacia: 'Farmacia Bauer' },
-  { fecha: '2026-08-16', claveFarmacia: 'Farmacia Risolino' },
-  { fecha: '2026-08-17', claveFarmacia: 'Farmacia Torra' },
-  { fecha: '2026-08-18', claveFarmacia: 'Farmacia Del Pueblo' },
-  { fecha: '2026-08-19', claveFarmacia: 'Farmacia Bobbett' },
-  { fecha: '2026-08-20', claveFarmacia: 'Farmacia Rodríguez Scheys' },
-  { fecha: '2026-08-21', claveFarmacia: 'Farmacia Del Pueblo' },
-  { fecha: '2026-08-22', claveFarmacia: 'Farmacia Fattore' },
-  { fecha: '2026-08-23', claveFarmacia: 'Farmacia Bauer' },
-  { fecha: '2026-08-24', claveFarmacia: 'Farmacia Risolino' },
-  { fecha: '2026-08-25', claveFarmacia: 'Farmacia Torra' },
-  { fecha: '2026-08-26', claveFarmacia: 'Farmacia Del Pueblo' },
-  { fecha: '2026-08-27', claveFarmacia: 'Farmacia Bobbett' },
-  { fecha: '2026-08-28', claveFarmacia: 'Farmacia Rodríguez Scheys' },
-  { fecha: '2026-08-29', claveFarmacia: 'Farmacia Del Pueblo' },
-  { fecha: '2026-08-30', claveFarmacia: 'Farmacia Fattore' },
-  { fecha: '2026-08-31', claveFarmacia: 'Farmacia Bauer' },
+  // Jueves 1 de Octubre
+  { fecha: '2026-10-01', claveFarmacia: 'Agarie' },
+  { fecha: '2026-10-01', claveFarmacia: 'Alesel SCS' },
+  { fecha: '2026-10-01', claveFarmacia: 'Beccar' },
+  { fecha: '2026-10-01', claveFarmacia: 'Fogacci' },
+
+  // Viernes 2 de Octubre
+  { fecha: '2026-10-02', claveFarmacia: 'Juncal' },
+  { fecha: '2026-10-02', claveFarmacia: 'Lioy' },
+  { fecha: '2026-10-02', claveFarmacia: 'Modarelli' },
+  { fecha: '2026-10-02', claveFarmacia: 'Salazar' },
+  { fecha: '2026-10-02', claveFarmacia: 'Sambam' },
+
+  // Sábado 3 de Octubre
+  { fecha: '2026-10-03', claveFarmacia: 'Bigi' },
+  { fecha: '2026-10-03', claveFarmacia: 'Caminos' },
+  { fecha: '2026-10-03', claveFarmacia: 'Cardero' },
+  { fecha: '2026-10-03', claveFarmacia: 'Gomez' },
+
+  // Domingo 4 de Octubre
+  { fecha: '2026-10-04', claveFarmacia: 'Cientifica Jr S.C.S' },
+  { fecha: '2026-10-04', claveFarmacia: 'Dankner' },
+  { fecha: '2026-10-04', claveFarmacia: 'Paladino' },
+  { fecha: '2026-10-04', claveFarmacia: 'Rolon' },
+
+  // Lunes 5 de Octubre
+  { fecha: '2026-10-05', claveFarmacia: 'Camsimm' },
+  { fecha: '2026-10-05', claveFarmacia: 'DyF' },
+  { fecha: '2026-10-05', claveFarmacia: 'La Paz SCS' },
+  { fecha: '2026-10-05', claveFarmacia: 'Mark scs' },
+  { fecha: '2026-10-05', claveFarmacia: 'Martinez' },
+
+  // Martes 6 de Octubre
+  { fecha: '2026-10-06', claveFarmacia: 'Cargnoni' },
+  { fecha: '2026-10-06', claveFarmacia: 'Dibilio' },
+  { fecha: '2026-10-06', claveFarmacia: 'Ishikawa' },
+  { fecha: '2026-10-06', claveFarmacia: 'Lagonegro' },
+
+  // Miércoles 7 de Octubre
+  { fecha: '2026-10-07', claveFarmacia: 'Brucoli' },
+  { fecha: '2026-10-07', claveFarmacia: 'Chiusano' },
+  { fecha: '2026-10-07', claveFarmacia: 'Punta Chica' },
+  { fecha: '2026-10-07', claveFarmacia: 'Sarratea' },
+
+  // Jueves 8 de Octubre
+  { fecha: '2026-10-08', claveFarmacia: 'Borzone' },
+  { fecha: '2026-10-08', claveFarmacia: 'Del Pueblo Beccar' },
+  { fecha: '2026-10-08', claveFarmacia: 'Nueva Santa Rita' },
+  { fecha: '2026-10-08', claveFarmacia: 'Olsina' },
+
+  // Viernes 9 de Octubre
+  { fecha: '2026-10-09', claveFarmacia: 'Baz' },
+  { fecha: '2026-10-09', claveFarmacia: 'Iglesias' },
+  { fecha: '2026-10-09', claveFarmacia: 'San Antonio' },
+
+  // Sábado 10 de Octubre
+  { fecha: '2026-10-10', claveFarmacia: 'Alfaro S.C.S.' },
+  { fecha: '2026-10-10', claveFarmacia: 'Catania' },
+  { fecha: '2026-10-10', claveFarmacia: 'Salvucci Valenti' },
+  { fecha: '2026-10-10', claveFarmacia: 'Thevenet' },
+
+  // Domingo 11 de Octubre
+  { fecha: '2026-10-11', claveFarmacia: 'Aguirre' },
+  { fecha: '2026-10-11', claveFarmacia: 'Del Angel' },
+  { fecha: '2026-10-11', claveFarmacia: 'Molino' },
+  { fecha: '2026-10-11', claveFarmacia: 'Moreno Salinas' },
+  { fecha: '2026-10-11', claveFarmacia: 'Thames' },
+
+  // Lunes 12 de Octubre
+  { fecha: '2026-10-12', claveFarmacia: 'Asame' },
+  { fecha: '2026-10-12', claveFarmacia: 'Irie' },
+  { fecha: '2026-10-12', claveFarmacia: 'MFM' },
+  { fecha: '2026-10-12', claveFarmacia: 'Tomkinson' },
+
+  // Martes 13 de Octubre
+  { fecha: '2026-10-13', claveFarmacia: 'De La Costa SCS' },
+  { fecha: '2026-10-13', claveFarmacia: 'Loureiro' },
+  { fecha: '2026-10-13', claveFarmacia: 'Peatonal' },
+  { fecha: '2026-10-13', claveFarmacia: 'Podium' },
+
+  // Miércoles 14 de Octubre
+  { fecha: '2026-10-14', claveFarmacia: 'Agnese' },
+  { fecha: '2026-10-14', claveFarmacia: 'Añon' },
+  { fecha: '2026-10-14', claveFarmacia: 'Rosendi' },
+  { fecha: '2026-10-14', claveFarmacia: 'Zinga' },
+
+  // Jueves 15 de Octubre
+  { fecha: '2026-10-15', claveFarmacia: 'Ader' },
+  { fecha: '2026-10-15', claveFarmacia: 'La merced' },
+  { fecha: '2026-10-15', claveFarmacia: 'Marmol' },
+  { fecha: '2026-10-15', claveFarmacia: 'Sznirer' },
+
+  // Viernes 16 de Octubre
+  { fecha: '2026-10-16', claveFarmacia: 'Central Marmat' },
+  { fecha: '2026-10-16', claveFarmacia: 'El Fenix' },
+  { fecha: '2026-10-16', claveFarmacia: 'Mariotto' },
+  { fecha: '2026-10-16', claveFarmacia: 'Schinca' },
+
+  // Sábado 17 de Octubre
+  { fecha: '2026-10-17', claveFarmacia: 'Behring' },
+  { fecha: '2026-10-17', claveFarmacia: 'F.D.L. Legua SCS' },
+  { fecha: '2026-10-17', claveFarmacia: 'San Isidro Lomas SCS' },
+
+  // Domingo 18 de Octubre
+  { fecha: '2026-10-18', claveFarmacia: 'Agarie' },
+  { fecha: '2026-10-18', claveFarmacia: 'Beccar' },
+  { fecha: '2026-10-18', claveFarmacia: 'Lioy' },
+  { fecha: '2026-10-18', claveFarmacia: 'Sambam' },
+
+  // Lunes 19 de Octubre
+  { fecha: '2026-10-19', claveFarmacia: 'Bigi' },
+  { fecha: '2026-10-19', claveFarmacia: 'Caminos' },
+  { fecha: '2026-10-19', claveFarmacia: 'Juncal' },
+  { fecha: '2026-10-19', claveFarmacia: 'Modarelli' },
+  { fecha: '2026-10-19', claveFarmacia: 'Salazar' },
+
+  // Martes 20 de Octubre
+  { fecha: '2026-10-20', claveFarmacia: 'Cardero' },
+  { fecha: '2026-10-20', claveFarmacia: 'Cientifica Jr S.C.S' },
+  { fecha: '2026-10-20', claveFarmacia: 'Dankner' },
+  { fecha: '2026-10-20', claveFarmacia: 'Gomez' },
+
+  // Miércoles 21 de Octubre
+  { fecha: '2026-10-21', claveFarmacia: 'Camsimm' },
+  { fecha: '2026-10-21', claveFarmacia: 'DyF' },
+  { fecha: '2026-10-21', claveFarmacia: 'Paladino' },
+  { fecha: '2026-10-21', claveFarmacia: 'Rolon' },
+
+  // Jueves 22 de Octubre
+  { fecha: '2026-10-22', claveFarmacia: 'Cargnoni' },
+  { fecha: '2026-10-22', claveFarmacia: 'Dibilio' },
+  { fecha: '2026-10-22', claveFarmacia: 'La Paz SCS' },
+  { fecha: '2026-10-22', claveFarmacia: 'Mark scs' },
+  { fecha: '2026-10-22', claveFarmacia: 'Martinez' },
+
+  // Viernes 23 de Octubre
+  { fecha: '2026-10-23', claveFarmacia: 'Chiusano' },
+  { fecha: '2026-10-23', claveFarmacia: 'Ishikawa' },
+  { fecha: '2026-10-23', claveFarmacia: 'Lagonegro' },
+  { fecha: '2026-10-23', claveFarmacia: 'Sarratea' },
+
+  // Sábado 24 de Octubre
+  { fecha: '2026-10-24', claveFarmacia: 'Borzone' },
+  { fecha: '2026-10-24', claveFarmacia: 'Brucoli' },
+  { fecha: '2026-10-24', claveFarmacia: 'Nueva Santa Rita' },
+  { fecha: '2026-10-24', claveFarmacia: 'Punta Chica' }
 ];
+
 
 // ==========================================
 async function main() {

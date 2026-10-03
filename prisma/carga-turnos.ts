@@ -18,6 +18,9 @@ const NOMBRE_LOCALIDAD = 'San Antonio de Areco';
 // const NOMBRE_LOCALIDAD = 'Rojas';  
 // const NOMBRE_LOCALIDAD = 'Salto';
 // const NOMBRE_LOCALIDAD = 'Mar del Plata';  
+// const NOMBRE_LOCALIDAD = 'Campana';  
+// const NOMBRE_LOCALIDAD = 'Zarate';  
+// const NOMBRE_LOCALIDAD = 'San Isidro';  
 
 // <-- Cambiá el calendario acá
 // const CALENDARIO_RAW = [
@@ -174,6 +177,22 @@ San Antonio de Areco
 ------------------------------------------
 Obtener lista de tunos corriendo el siguiente script
 C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 8 2026-07-01 31
+
+Generar listado similar al siguiente con las fechas y farmacias de la imagen (año y mes actual). 
+const CALENDARIO_RAW = [
+  { fecha: '2026-07-01', claveFarmacia: 'Central' },
+  { fecha: '2026-07-02', claveFarmacia: 'Del Pueblo' },
+];
+Mapear los nombres usando esta lista (si no se  puede mapear, informar):
+Farmacia Berola
+Farmacia Bauer
+Farmacia Del Pueblo
+Farmacia Fattore
+Farmacia Risolino
+Farmacia Rodríguez Scheys
+Farmacia Torra
+Farmacia Bobbett
+
 ------------------------------------------
 Baradero
 ------------------------------------------
@@ -202,7 +221,7 @@ Farmacia Silvano
 ------------------------------------------
 Pergamino
 ------------------------------------------
-C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 1 2026-07-01 31
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 1 2026-10-01 31
 
 ------------------------------------------
 San Andrés de Giles
@@ -277,41 +296,74 @@ Tiseyra
 ------------------------------------------
 Capitan Sarmiento
 ------------------------------------------
-C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 11 2026-07-01 31
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 11 2026-10-01 31
 
 ------------------------------------------
 Arrecifes
 ------------------------------------------
-C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 10 2026-07-01 31
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 10 2026-10-01 31
 
 ------------------------------------------
 Carmen de Areco
 ------------------------------------------
-C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 32 2026-07-01 31
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 32 2026-10-01 31
 
 ------------------------------------------
 Junin
 ------------------------------------------
-C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 9 2026-07-01 31
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 9 2026-10-01 31
 
 ------------------------------------------
 Ramallo
 ------------------------------------------
-C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 33 2026-07-01 31
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 33 2026-10-01 31
+
+Generar listado similar al siguiente con las fechas y farmacias de la imagen (año y mes actual). 
+const CALENDARIO_RAW = [
+  { fecha: '2026-07-01', claveFarmacia: 'Central' },
+  { fecha: '2026-07-02', claveFarmacia: 'Del Pueblo' },
+];
 
 ------------------------------------------
 Rojas
 ------------------------------------------
-C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 13 2026-07-01 31
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 13 2026-10-01 31
 
 ------------------------------------------
 Salto
 ------------------------------------------
-C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 74 2026-07-01 31
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 74 2026-10-01 31
 
 ------------------------------------------
 Mar del Plata
 ------------------------------------------
 C:\_data\sfdt\farmacias-turno\automate>node getDataMDQ.js
+
+------------------------------------------
+Campana
+------------------------------------------
+Generar listado similar al siguiente con las fechas y farmacias de la imagen (año y mes actual). 
+const CALENDARIO_RAW = [
+  { fecha: '2026-07-01', claveFarmacia: 'Central' },
+  { fecha: '2026-07-02', claveFarmacia: 'Del Pueblo' },
+];
+
+------------------------------------------
+Zarate
+------------------------------------------
+Generar listado similar al siguiente con las fechas y farmacias de la imagen (año y mes actual). 
+const CALENDARIO_RAW = [
+  { fecha: '2026-07-01', claveFarmacia: 'Central' },
+  { fecha: '2026-07-02', claveFarmacia: 'Del Pueblo' },
+];
+
+------------------------------------------
+San Isidro
+------------------------------------------
+Generar listado similar al siguiente con las fechas y farmacias de la imagen (año y mes actual). 
+const CALENDARIO_RAW = [
+  { fecha: '2026-07-01', claveFarmacia: 'Central' },
+  { fecha: '2026-07-02', claveFarmacia: 'Del Pueblo' },
+];
 
   */

@@ -1,0 +1,1354 @@
+[
+  {
+    "fecha": "2026-06-01",
+    "claveFarmacia": "GARCIA BORDENAVE"
+  },
+  {
+    "fecha": "2026-06-01",
+    "claveFarmacia": "GUEVARA"
+  },
+  {
+    "fecha": "2026-06-01",
+    "claveFarmacia": "HERRERA"
+  },
+  {
+    "fecha": "2026-06-01",
+    "claveFarmacia": "JULIAN ALBERTO"
+  },
+  {
+    "fecha": "2026-06-01",
+    "claveFarmacia": "MALEN"
+  },
+  {
+    "fecha": "2026-06-01",
+    "claveFarmacia": "MARTIGNONE"
+  },
+  {
+    "fecha": "2026-06-01",
+    "claveFarmacia": "MITRE"
+  },
+  {
+    "fecha": "2026-06-01",
+    "claveFarmacia": "PHARMAPORT S.C.S."
+  },
+  {
+    "fecha": "2026-06-01",
+    "claveFarmacia": "PHARMARURAL SCS"
+  },
+  {
+    "fecha": "2026-06-01",
+    "claveFarmacia": "SOICH ALAIN"
+  },
+  {
+    "fecha": "2026-06-01",
+    "claveFarmacia": "TEJEDOR 381 SCS"
+  },
+  {
+    "fecha": "2026-06-02",
+    "claveFarmacia": "ANGELUCCI"
+  },
+  {
+    "fecha": "2026-06-02",
+    "claveFarmacia": "ARANDA"
+  },
+  {
+    "fecha": "2026-06-02",
+    "claveFarmacia": "BOSQUE GRANDE S.C.S."
+  },
+  {
+    "fecha": "2026-06-02",
+    "claveFarmacia": "FARMAHUINCO SCS"
+  },
+  {
+    "fecha": "2026-06-02",
+    "claveFarmacia": "FCIA.SOCIAL LURO SCS"
+  },
+  {
+    "fecha": "2026-06-02",
+    "claveFarmacia": "LASSERRE"
+  },
+  {
+    "fecha": "2026-06-02",
+    "claveFarmacia": "MARIO SIMINI"
+  },
+  {
+    "fecha": "2026-06-02",
+    "claveFarmacia": "MITRE"
+  },
+  {
+    "fecha": "2026-06-02",
+    "claveFarmacia": "NUEVA CONSTITUCION S.C.S."
+  },
+  {
+    "fecha": "2026-06-02",
+    "claveFarmacia": "SERI"
+  },
+  {
+    "fecha": "2026-06-02",
+    "claveFarmacia": "STOLAR"
+  },
+  {
+    "fecha": "2026-06-03",
+    "claveFarmacia": "ABALLAY"
+  },
+  {
+    "fecha": "2026-06-03",
+    "claveFarmacia": "CRISTI SCS"
+  },
+  {
+    "fecha": "2026-06-03",
+    "claveFarmacia": "FARM.CONSTITUCION LASSALLE"
+  },
+  {
+    "fecha": "2026-06-03",
+    "claveFarmacia": "FARMACIA SE.AD.HE"
+  },
+  {
+    "fecha": "2026-06-03",
+    "claveFarmacia": "FARMACIA SERRAT"
+  },
+  {
+    "fecha": "2026-06-03",
+    "claveFarmacia": "GRIMALDI DIEZ"
+  },
+  {
+    "fecha": "2026-06-03",
+    "claveFarmacia": "MENDELEIV SUR SCS"
+  },
+  {
+    "fecha": "2026-06-03",
+    "claveFarmacia": "MITRE"
+  },
+  {
+    "fecha": "2026-06-03",
+    "claveFarmacia": "RIMATU SCS"
+  },
+  {
+    "fecha": "2026-06-03",
+    "claveFarmacia": "RIQUELME"
+  },
+  {
+    "fecha": "2026-06-03",
+    "claveFarmacia": "VILLAFRANCA"
+  },
+  {
+    "fecha": "2026-06-04",
+    "claveFarmacia": "AMANCAY MDQ"
+  },
+  {
+    "fecha": "2026-06-04",
+    "claveFarmacia": "AVENIDA"
+  },
+  {
+    "fecha": "2026-06-04",
+    "claveFarmacia": "COPAL"
+  },
+  {
+    "fecha": "2026-06-04",
+    "claveFarmacia": "DEL LABRADOR SCS"
+  },
+  {
+    "fecha": "2026-06-04",
+    "claveFarmacia": "FCIA NUEVA PLAZA II SCS"
+  },
+  {
+    "fecha": "2026-06-04",
+    "claveFarmacia": "FLORES S.C.S."
+  },
+  {
+    "fecha": "2026-06-04",
+    "claveFarmacia": "FRESCO"
+  },
+  {
+    "fecha": "2026-06-04",
+    "claveFarmacia": "GOMEZ"
+  },
+  {
+    "fecha": "2026-06-04",
+    "claveFarmacia": "MAMMANA ALBERTO"
+  },
+  {
+    "fecha": "2026-06-04",
+    "claveFarmacia": "MITRE"
+  },
+  {
+    "fecha": "2026-06-04",
+    "claveFarmacia": "RAMA PRE 05 SCS"
+  },
+  {
+    "fecha": "2026-06-04",
+    "claveFarmacia": "VARA"
+  },
+  {
+    "fecha": "2026-06-05",
+    "claveFarmacia": "25 DE MAYO"
+  },
+  {
+    "fecha": "2026-06-05",
+    "claveFarmacia": "CARRIZO"
+  },
+  {
+    "fecha": "2026-06-05",
+    "claveFarmacia": "KILDUFF"
+  },
+  {
+    "fecha": "2026-06-05",
+    "claveFarmacia": "LISSARRAGUE"
+  },
+  {
+    "fecha": "2026-06-05",
+    "claveFarmacia": "MILAZZO"
+  },
+  {
+    "fecha": "2026-06-05",
+    "claveFarmacia": "MITRE"
+  },
+  {
+    "fecha": "2026-06-05",
+    "claveFarmacia": "MONTTI"
+  },
+  {
+    "fecha": "2026-06-05",
+    "claveFarmacia": "ORTEGA FARMACEUTICA SCS"
+  },
+  {
+    "fecha": "2026-06-05",
+    "claveFarmacia": "PRAMOS SCS"
+  },
+  {
+    "fecha": "2026-06-05",
+    "claveFarmacia": "RODRIGUEZ SUSANA"
+  },
+  {
+    "fecha": "2026-06-05",
+    "claveFarmacia": "ZAMACZUK"
+  },
+  {
+    "fecha": "2026-06-06",
+    "claveFarmacia": "ALLEMNA SCS"
+  },
+  {
+    "fecha": "2026-06-06",
+    "claveFarmacia": "AMANCAY DE LAUMA FTCA SCS"
+  },
+  {
+    "fecha": "2026-06-06",
+    "claveFarmacia": "DELLA MAGGIORA"
+  },
+  {
+    "fecha": "2026-06-06",
+    "claveFarmacia": "FARMALYF SCS"
+  },
+  {
+    "fecha": "2026-06-06",
+    "claveFarmacia": "JARDIN DE LA SIERRA SCS"
+  },
+  {
+    "fecha": "2026-06-06",
+    "claveFarmacia": "JORGE RUIZ"
+  },
+  {
+    "fecha": "2026-06-06",
+    "claveFarmacia": "MITRE"
+  },
+  {
+    "fecha": "2026-06-06",
+    "claveFarmacia": "MURRAY"
+  },
+  {
+    "fecha": "2026-06-06",
+    "claveFarmacia": "PINOS DE ANCHORENA SCS"
+  },
+  {
+    "fecha": "2026-06-06",
+    "claveFarmacia": "POUSSET"
+  },
+  {
+    "fecha": "2026-06-06",
+    "claveFarmacia": "VALENTINI"
+  },
+  {
+    "fecha": "2026-06-06",
+    "claveFarmacia": "VIZCAY"
+  },
+  {
+    "fecha": "2026-06-07",
+    "claveFarmacia": "AZCONEGUI"
+  },
+  {
+    "fecha": "2026-06-07",
+    "claveFarmacia": "CANESSA"
+  },
+  {
+    "fecha": "2026-06-07",
+    "claveFarmacia": "COMUFARMA S.C.S"
+  },
+  {
+    "fecha": "2026-06-07",
+    "claveFarmacia": "CUELLO"
+  },
+  {
+    "fecha": "2026-06-07",
+    "claveFarmacia": "FERRANDO"
+  },
+  {
+    "fecha": "2026-06-07",
+    "claveFarmacia": "GUIDI"
+  },
+  {
+    "fecha": "2026-06-07",
+    "claveFarmacia": "LAS HERAS"
+  },
+  {
+    "fecha": "2026-06-07",
+    "claveFarmacia": "MITRE"
+  },
+  {
+    "fecha": "2026-06-07",
+    "claveFarmacia": "OLIVERI"
+  },
+  {
+    "fecha": "2026-06-07",
+    "claveFarmacia": "SENA"
+  },
+  {
+    "fecha": "2026-06-07",
+    "claveFarmacia": "TELLERIA"
+  },
+  {
+    "fecha": "2026-06-07",
+    "claveFarmacia": "VILLEGAS DE C.VILLEGAS"
+  },
+  {
+    "fecha": "2026-06-08",
+    "claveFarmacia": "ABALLAY"
+  },
+  {
+    "fecha": "2026-06-08",
+    "claveFarmacia": "FARMA-RICHAR SCS"
+  },
+  {
+    "fecha": "2026-06-08",
+    "claveFarmacia": "FLIA PRE SCS"
+  },
+  {
+    "fecha": "2026-06-08",
+    "claveFarmacia": "LA BOTICA DE LOS TRONCOS"
+  },
+  {
+    "fecha": "2026-06-08",
+    "claveFarmacia": "LIZALDE"
+  },
+  {
+    "fecha": "2026-06-08",
+    "claveFarmacia": "MELUCCI"
+  },
+  {
+    "fecha": "2026-06-08",
+    "claveFarmacia": "MITRE"
+  },
+  {
+    "fecha": "2026-06-08",
+    "claveFarmacia": "SAN JOSE"
+  },
+  {
+    "fecha": "2026-06-08",
+    "claveFarmacia": "SZPYRNAL SCS"
+  },
+  {
+    "fecha": "2026-06-08",
+    "claveFarmacia": "TROZZI"
+  },
+  {
+    "fecha": "2026-06-08",
+    "claveFarmacia": "VIDELA"
+  },
+  {
+    "fecha": "2026-06-08",
+    "claveFarmacia": "VITA"
+  },
+  {
+    "fecha": "2026-06-09",
+    "claveFarmacia": "CARRERA"
+  },
+  {
+    "fecha": "2026-06-09",
+    "claveFarmacia": "DEL AGUILA"
+  },
+  {
+    "fecha": "2026-06-09",
+    "claveFarmacia": "FARMACIA SUR SCS"
+  },
+  {
+    "fecha": "2026-06-09",
+    "claveFarmacia": "GARCIA CASABAL"
+  },
+  {
+    "fecha": "2026-06-09",
+    "claveFarmacia": "JARDIN DEL BOSQUE"
+  },
+  {
+    "fecha": "2026-06-09",
+    "claveFarmacia": "JULIO RIADIGOS"
+  },
+  {
+    "fecha": "2026-06-09",
+    "claveFarmacia": "MITRE"
+  },
+  {
+    "fecha": "2026-06-09",
+    "claveFarmacia": "OSCAR GARCIA"
+  },
+  {
+    "fecha": "2026-06-09",
+    "claveFarmacia": "PABLO SIMINI"
+  },
+  {
+    "fecha": "2026-06-09",
+    "claveFarmacia": "SAMPAOLESI"
+  },
+  {
+    "fecha": "2026-06-09",
+    "claveFarmacia": "TREJOMAR"
+  },
+  {
+    "fecha": "2026-06-10",
+    "claveFarmacia": "ANDRES FRONTINI"
+  },
+  {
+    "fecha": "2026-06-10",
+    "claveFarmacia": "FAILONI"
+  },
+  {
+    "fecha": "2026-06-10",
+    "claveFarmacia": "FLORES PRADO"
+  },
+  {
+    "fecha": "2026-06-10",
+    "claveFarmacia": "MITRE"
+  },
+  {
+    "fecha": "2026-06-10",
+    "claveFarmacia": "NUEVA EDISON FARMACEUTICA"
+  },
+  {
+    "fecha": "2026-06-10",
+    "claveFarmacia": "OMBRONI"
+  },
+  {
+    "fecha": "2026-06-10",
+    "claveFarmacia": "PREMEDICA SCS"
+  },
+  {
+    "fecha": "2026-06-10",
+    "claveFarmacia": "RIADIGOS"
+  },
+  {
+    "fecha": "2026-06-10",
+    "claveFarmacia": "RODRIGUEZ"
+  },
+  {
+    "fecha": "2026-06-10",
+    "claveFarmacia": "ROIG"
+  },
+  {
+    "fecha": "2026-06-11",
+    "claveFarmacia": "ATENA"
+  },
+  {
+    "fecha": "2026-06-11",
+    "claveFarmacia": "CASTRO MARIO"
+  },
+  {
+    "fecha": "2026-06-11",
+    "claveFarmacia": "DEL PUERTO"
+  },
+  {
+    "fecha": "2026-06-11",
+    "claveFarmacia": "FALDINA"
+  },
+  {
+    "fecha": "2026-06-11",
+    "claveFarmacia": "FEBA S.C.S."
+  },
+  {
+    "fecha": "2026-06-11",
+    "claveFarmacia": "FERRERO"
+  },
+  {
+    "fecha": "2026-06-11",
+    "claveFarmacia": "LOPEZ"
+  },
+  {
+    "fecha": "2026-06-11",
+    "claveFarmacia": "MARQUEZ"
+  },
+  {
+    "fecha": "2026-06-11",
+    "claveFarmacia": "MITRE"
+  },
+  {
+    "fecha": "2026-06-11",
+    "claveFarmacia": "PEREIRA"
+  },
+  {
+    "fecha": "2026-06-11",
+    "claveFarmacia": "PIROLA"
+  },
+  {
+    "fecha": "2026-06-11",
+    "claveFarmacia": "STECKINGER"
+  },
+  {
+    "fecha": "2026-06-12",
+    "claveFarmacia": "BADAMAR SCS"
+  },
+  {
+    "fecha": "2026-06-12",
+    "claveFarmacia": "BUSTOS"
+  },
+  {
+    "fecha": "2026-06-12",
+    "claveFarmacia": "DEL INTERZONAL"
+  },
+  {
+    "fecha": "2026-06-12",
+    "claveFarmacia": "EL GROSELLAR"
+  },
+  {
+    "fecha": "2026-06-12",
+    "claveFarmacia": "MAR DEL GOMEZ S.C.S."
+  },
+  {
+    "fecha": "2026-06-12",
+    "claveFarmacia": "MARTI"
+  },
+  {
+    "fecha": "2026-06-12",
+    "claveFarmacia": "MEDICI S.C.S."
+  },
+  {
+    "fecha": "2026-06-12",
+    "claveFarmacia": "MITRE"
+  },
+  {
+    "fecha": "2026-06-12",
+    "claveFarmacia": "PEREIRA CECILIA"
+  },
+  {
+    "fecha": "2026-06-12",
+    "claveFarmacia": "PHARMABEACH SCS"
+  },
+  {
+    "fecha": "2026-06-12",
+    "claveFarmacia": "PREVILEY KAI SCS"
+  },
+  {
+    "fecha": "2026-06-12",
+    "claveFarmacia": "ROCHA"
+  },
+  {
+    "fecha": "2026-06-13",
+    "claveFarmacia": "BAUZA"
+  },
+  {
+    "fecha": "2026-06-13",
+    "claveFarmacia": "DEL CUETO"
+  },
+  {
+    "fecha": "2026-06-13",
+    "claveFarmacia": "DI IORIO BUONO"
+  },
+  {
+    "fecha": "2026-06-13",
+    "claveFarmacia": "FCIA.NUEVA CORDOBA SCS"
+  },
+  {
+    "fecha": "2026-06-13",
+    "claveFarmacia": "FERNANDEZ"
+  },
+  {
+    "fecha": "2026-06-13",
+    "claveFarmacia": "FRASSON"
+  },
+  {
+    "fecha": "2026-06-13",
+    "claveFarmacia": "MITRE"
+  },
+  {
+    "fecha": "2026-06-13",
+    "claveFarmacia": "MOLINA"
+  },
+  {
+    "fecha": "2026-06-13",
+    "claveFarmacia": "PIZZOLO"
+  },
+  {
+    "fecha": "2026-06-13",
+    "claveFarmacia": "PREVILEY"
+  },
+  {
+    "fecha": "2026-06-14",
+    "claveFarmacia": "CORAL S.C.S."
+  },
+  {
+    "fecha": "2026-06-14",
+    "claveFarmacia": "DOMINGUEZ LAY"
+  },
+  {
+    "fecha": "2026-06-14",
+    "claveFarmacia": "GILARDONI"
+  },
+  {
+    "fecha": "2026-06-14",
+    "claveFarmacia": "ITALIANA"
+  },
+  {
+    "fecha": "2026-06-14",
+    "claveFarmacia": "MITRE"
+  },
+  {
+    "fecha": "2026-06-14",
+    "claveFarmacia": "MONTERIOS SCS"
+  },
+  {
+    "fecha": "2026-06-14",
+    "claveFarmacia": "MORON"
+  },
+  {
+    "fecha": "2026-06-14",
+    "claveFarmacia": "PAZ"
+  },
+  {
+    "fecha": "2026-06-14",
+    "claveFarmacia": "PHARMADIET S.C.S."
+  },
+  {
+    "fecha": "2026-06-14",
+    "claveFarmacia": "RM SCS"
+  },
+  {
+    "fecha": "2026-06-14",
+    "claveFarmacia": "VIDA"
+  },
+  {
+    "fecha": "2026-06-15",
+    "claveFarmacia": "BADANEZ SCS"
+  },
+  {
+    "fecha": "2026-06-15",
+    "claveFarmacia": "CASTORINA"
+  },
+  {
+    "fecha": "2026-06-15",
+    "claveFarmacia": "DANTE"
+  },
+  {
+    "fecha": "2026-06-15",
+    "claveFarmacia": "EXPRESS MDQ S.C.S."
+  },
+  {
+    "fecha": "2026-06-15",
+    "claveFarmacia": "LA PERLA"
+  },
+  {
+    "fecha": "2026-06-15",
+    "claveFarmacia": "LUNADELABRAH SCS"
+  },
+  {
+    "fecha": "2026-06-15",
+    "claveFarmacia": "MITRE"
+  },
+  {
+    "fecha": "2026-06-15",
+    "claveFarmacia": "PHARMAVIP"
+  },
+  {
+    "fecha": "2026-06-15",
+    "claveFarmacia": "PUEYRREDON III SCS"
+  },
+  {
+    "fecha": "2026-06-15",
+    "claveFarmacia": "SACK"
+  },
+  {
+    "fecha": "2026-06-15",
+    "claveFarmacia": "URQUIZA"
+  },
+  {
+    "fecha": "2026-06-16",
+    "claveFarmacia": "DEL BARRIO S.C.S."
+  },
+  {
+    "fecha": "2026-06-16",
+    "claveFarmacia": "ELBEY Y FARINA S.C.S."
+  },
+  {
+    "fecha": "2026-06-16",
+    "claveFarmacia": "FRONTINI"
+  },
+  {
+    "fecha": "2026-06-16",
+    "claveFarmacia": "GALILEO SUR SCS"
+  },
+  {
+    "fecha": "2026-06-16",
+    "claveFarmacia": "GUEMES"
+  },
+  {
+    "fecha": "2026-06-16",
+    "claveFarmacia": "M.R.L. FARMACIA S.C.S."
+  },
+  {
+    "fecha": "2026-06-16",
+    "claveFarmacia": "MITRE"
+  },
+  {
+    "fecha": "2026-06-16",
+    "claveFarmacia": "MOBILIA"
+  },
+  {
+    "fecha": "2026-06-16",
+    "claveFarmacia": "NVA FCIA LUJAN D.L.ANGELES SCS"
+  },
+  {
+    "fecha": "2026-06-16",
+    "claveFarmacia": "PALKIN"
+  },
+  {
+    "fecha": "2026-06-16",
+    "claveFarmacia": "SAN JUAN S.C.S."
+  },
+  {
+    "fecha": "2026-06-17",
+    "claveFarmacia": "GARCIA BORDENAVE"
+  },
+  {
+    "fecha": "2026-06-17",
+    "claveFarmacia": "GUEVARA"
+  },
+  {
+    "fecha": "2026-06-17",
+    "claveFarmacia": "HERRERA"
+  },
+  {
+    "fecha": "2026-06-17",
+    "claveFarmacia": "JULIAN ALBERTO"
+  },
+  {
+    "fecha": "2026-06-17",
+    "claveFarmacia": "MALEN"
+  },
+  {
+    "fecha": "2026-06-17",
+    "claveFarmacia": "MARTIGNONE"
+  },
+  {
+    "fecha": "2026-06-17",
+    "claveFarmacia": "MITRE"
+  },
+  {
+    "fecha": "2026-06-17",
+    "claveFarmacia": "PHARMAPORT S.C.S."
+  },
+  {
+    "fecha": "2026-06-17",
+    "claveFarmacia": "PHARMARURAL SCS"
+  },
+  {
+    "fecha": "2026-06-17",
+    "claveFarmacia": "SOICH ALAIN"
+  },
+  {
+    "fecha": "2026-06-17",
+    "claveFarmacia": "TEJEDOR 381 SCS"
+  },
+  {
+    "fecha": "2026-06-18",
+    "claveFarmacia": "ANGELUCCI"
+  },
+  {
+    "fecha": "2026-06-18",
+    "claveFarmacia": "ARANDA"
+  },
+  {
+    "fecha": "2026-06-18",
+    "claveFarmacia": "BOSQUE GRANDE S.C.S."
+  },
+  {
+    "fecha": "2026-06-18",
+    "claveFarmacia": "FARMAHUINCO SCS"
+  },
+  {
+    "fecha": "2026-06-18",
+    "claveFarmacia": "FCIA.SOCIAL LURO SCS"
+  },
+  {
+    "fecha": "2026-06-18",
+    "claveFarmacia": "LASSERRE"
+  },
+  {
+    "fecha": "2026-06-18",
+    "claveFarmacia": "MARIO SIMINI"
+  },
+  {
+    "fecha": "2026-06-18",
+    "claveFarmacia": "MITRE"
+  },
+  {
+    "fecha": "2026-06-18",
+    "claveFarmacia": "NUEVA CONSTITUCION S.C.S."
+  },
+  {
+    "fecha": "2026-06-18",
+    "claveFarmacia": "SERI"
+  },
+  {
+    "fecha": "2026-06-18",
+    "claveFarmacia": "STOLAR"
+  },
+  {
+    "fecha": "2026-06-19",
+    "claveFarmacia": "ABALLAY"
+  },
+  {
+    "fecha": "2026-06-19",
+    "claveFarmacia": "CRISTI SCS"
+  },
+  {
+    "fecha": "2026-06-19",
+    "claveFarmacia": "FARM.CONSTITUCION LASSALLE"
+  },
+  {
+    "fecha": "2026-06-19",
+    "claveFarmacia": "FARMACIA SE.AD.HE"
+  },
+  {
+    "fecha": "2026-06-19",
+    "claveFarmacia": "FARMACIA SERRAT"
+  },
+  {
+    "fecha": "2026-06-19",
+    "claveFarmacia": "GRIMALDI DIEZ"
+  },
+  {
+    "fecha": "2026-06-19",
+    "claveFarmacia": "MENDELEIV SUR SCS"
+  },
+  {
+    "fecha": "2026-06-19",
+    "claveFarmacia": "MITRE"
+  },
+  {
+    "fecha": "2026-06-19",
+    "claveFarmacia": "RIMATU SCS"
+  },
+  {
+    "fecha": "2026-06-19",
+    "claveFarmacia": "RIQUELME"
+  },
+  {
+    "fecha": "2026-06-19",
+    "claveFarmacia": "VILLAFRANCA"
+  },
+  {
+    "fecha": "2026-06-20",
+    "claveFarmacia": "AMANCAY MDQ"
+  },
+  {
+    "fecha": "2026-06-20",
+    "claveFarmacia": "AVENIDA"
+  },
+  {
+    "fecha": "2026-06-20",
+    "claveFarmacia": "COPAL"
+  },
+  {
+    "fecha": "2026-06-20",
+    "claveFarmacia": "DEL LABRADOR SCS"
+  },
+  {
+    "fecha": "2026-06-20",
+    "claveFarmacia": "FCIA NUEVA PLAZA II SCS"
+  },
+  {
+    "fecha": "2026-06-20",
+    "claveFarmacia": "FLORES S.C.S."
+  },
+  {
+    "fecha": "2026-06-20",
+    "claveFarmacia": "FRESCO"
+  },
+  {
+    "fecha": "2026-06-20",
+    "claveFarmacia": "GOMEZ"
+  },
+  {
+    "fecha": "2026-06-20",
+    "claveFarmacia": "MAMMANA ALBERTO"
+  },
+  {
+    "fecha": "2026-06-20",
+    "claveFarmacia": "MITRE"
+  },
+  {
+    "fecha": "2026-06-20",
+    "claveFarmacia": "RAMA PRE 05 SCS"
+  },
+  {
+    "fecha": "2026-06-20",
+    "claveFarmacia": "VARA"
+  },
+  {
+    "fecha": "2026-06-21",
+    "claveFarmacia": "25 DE MAYO"
+  },
+  {
+    "fecha": "2026-06-21",
+    "claveFarmacia": "CARRIZO"
+  },
+  {
+    "fecha": "2026-06-21",
+    "claveFarmacia": "KILDUFF"
+  },
+  {
+    "fecha": "2026-06-21",
+    "claveFarmacia": "LISSARRAGUE"
+  },
+  {
+    "fecha": "2026-06-21",
+    "claveFarmacia": "MILAZZO"
+  },
+  {
+    "fecha": "2026-06-21",
+    "claveFarmacia": "MITRE"
+  },
+  {
+    "fecha": "2026-06-21",
+    "claveFarmacia": "MONTTI"
+  },
+  {
+    "fecha": "2026-06-21",
+    "claveFarmacia": "ORTEGA FARMACEUTICA SCS"
+  },
+  {
+    "fecha": "2026-06-21",
+    "claveFarmacia": "PRAMOS SCS"
+  },
+  {
+    "fecha": "2026-06-21",
+    "claveFarmacia": "RODRIGUEZ SUSANA"
+  },
+  {
+    "fecha": "2026-06-21",
+    "claveFarmacia": "ZAMACZUK"
+  },
+  {
+    "fecha": "2026-06-22",
+    "claveFarmacia": "ALLEMNA SCS"
+  },
+  {
+    "fecha": "2026-06-22",
+    "claveFarmacia": "AMANCAY DE LAUMA FTCA SCS"
+  },
+  {
+    "fecha": "2026-06-22",
+    "claveFarmacia": "DELLA MAGGIORA"
+  },
+  {
+    "fecha": "2026-06-22",
+    "claveFarmacia": "FARMALYF SCS"
+  },
+  {
+    "fecha": "2026-06-22",
+    "claveFarmacia": "JARDIN DE LA SIERRA SCS"
+  },
+  {
+    "fecha": "2026-06-22",
+    "claveFarmacia": "JORGE RUIZ"
+  },
+  {
+    "fecha": "2026-06-22",
+    "claveFarmacia": "MITRE"
+  },
+  {
+    "fecha": "2026-06-22",
+    "claveFarmacia": "MURRAY"
+  },
+  {
+    "fecha": "2026-06-22",
+    "claveFarmacia": "PINOS DE ANCHORENA SCS"
+  },
+  {
+    "fecha": "2026-06-22",
+    "claveFarmacia": "POUSSET"
+  },
+  {
+    "fecha": "2026-06-22",
+    "claveFarmacia": "VALENTINI"
+  },
+  {
+    "fecha": "2026-06-22",
+    "claveFarmacia": "VIZCAY"
+  },
+  {
+    "fecha": "2026-06-23",
+    "claveFarmacia": "AZCONEGUI"
+  },
+  {
+    "fecha": "2026-06-23",
+    "claveFarmacia": "CANESSA"
+  },
+  {
+    "fecha": "2026-06-23",
+    "claveFarmacia": "COMUFARMA S.C.S"
+  },
+  {
+    "fecha": "2026-06-23",
+    "claveFarmacia": "CUELLO"
+  },
+  {
+    "fecha": "2026-06-23",
+    "claveFarmacia": "FERRANDO"
+  },
+  {
+    "fecha": "2026-06-23",
+    "claveFarmacia": "GUIDI"
+  },
+  {
+    "fecha": "2026-06-23",
+    "claveFarmacia": "LAS HERAS"
+  },
+  {
+    "fecha": "2026-06-23",
+    "claveFarmacia": "MITRE"
+  },
+  {
+    "fecha": "2026-06-23",
+    "claveFarmacia": "OLIVERI"
+  },
+  {
+    "fecha": "2026-06-23",
+    "claveFarmacia": "SENA"
+  },
+  {
+    "fecha": "2026-06-23",
+    "claveFarmacia": "TELLERIA"
+  },
+  {
+    "fecha": "2026-06-23",
+    "claveFarmacia": "VILLEGAS DE C.VILLEGAS"
+  },
+  {
+    "fecha": "2026-06-24",
+    "claveFarmacia": "ABALLAY"
+  },
+  {
+    "fecha": "2026-06-24",
+    "claveFarmacia": "FARMA-RICHAR SCS"
+  },
+  {
+    "fecha": "2026-06-24",
+    "claveFarmacia": "FLIA PRE SCS"
+  },
+  {
+    "fecha": "2026-06-24",
+    "claveFarmacia": "LA BOTICA DE LOS TRONCOS"
+  },
+  {
+    "fecha": "2026-06-24",
+    "claveFarmacia": "LIZALDE"
+  },
+  {
+    "fecha": "2026-06-24",
+    "claveFarmacia": "MELUCCI"
+  },
+  {
+    "fecha": "2026-06-24",
+    "claveFarmacia": "MITRE"
+  },
+  {
+    "fecha": "2026-06-24",
+    "claveFarmacia": "SAN JOSE"
+  },
+  {
+    "fecha": "2026-06-24",
+    "claveFarmacia": "SZPYRNAL SCS"
+  },
+  {
+    "fecha": "2026-06-24",
+    "claveFarmacia": "TROZZI"
+  },
+  {
+    "fecha": "2026-06-24",
+    "claveFarmacia": "VIDELA"
+  },
+  {
+    "fecha": "2026-06-24",
+    "claveFarmacia": "VITA"
+  },
+  {
+    "fecha": "2026-06-25",
+    "claveFarmacia": "CARRERA"
+  },
+  {
+    "fecha": "2026-06-25",
+    "claveFarmacia": "DEL AGUILA"
+  },
+  {
+    "fecha": "2026-06-25",
+    "claveFarmacia": "FARMACIA SUR SCS"
+  },
+  {
+    "fecha": "2026-06-25",
+    "claveFarmacia": "GARCIA CASABAL"
+  },
+  {
+    "fecha": "2026-06-25",
+    "claveFarmacia": "JARDIN DEL BOSQUE"
+  },
+  {
+    "fecha": "2026-06-25",
+    "claveFarmacia": "JULIO RIADIGOS"
+  },
+  {
+    "fecha": "2026-06-25",
+    "claveFarmacia": "MITRE"
+  },
+  {
+    "fecha": "2026-06-25",
+    "claveFarmacia": "OSCAR GARCIA"
+  },
+  {
+    "fecha": "2026-06-25",
+    "claveFarmacia": "PABLO SIMINI"
+  },
+  {
+    "fecha": "2026-06-25",
+    "claveFarmacia": "SAMPAOLESI"
+  },
+  {
+    "fecha": "2026-06-25",
+    "claveFarmacia": "TREJOMAR"
+  },
+  {
+    "fecha": "2026-06-26",
+    "claveFarmacia": "ANDRES FRONTINI"
+  },
+  {
+    "fecha": "2026-06-26",
+    "claveFarmacia": "FAILONI"
+  },
+  {
+    "fecha": "2026-06-26",
+    "claveFarmacia": "FLORES PRADO"
+  },
+  {
+    "fecha": "2026-06-26",
+    "claveFarmacia": "MITRE"
+  },
+  {
+    "fecha": "2026-06-26",
+    "claveFarmacia": "NUEVA EDISON FARMACEUTICA"
+  },
+  {
+    "fecha": "2026-06-26",
+    "claveFarmacia": "OMBRONI"
+  },
+  {
+    "fecha": "2026-06-26",
+    "claveFarmacia": "PREMEDICA SCS"
+  },
+  {
+    "fecha": "2026-06-26",
+    "claveFarmacia": "RIADIGOS"
+  },
+  {
+    "fecha": "2026-06-26",
+    "claveFarmacia": "RODRIGUEZ"
+  },
+  {
+    "fecha": "2026-06-26",
+    "claveFarmacia": "ROIG"
+  },
+  {
+    "fecha": "2026-06-27",
+    "claveFarmacia": "ATENA"
+  },
+  {
+    "fecha": "2026-06-27",
+    "claveFarmacia": "CASTRO MARIO"
+  },
+  {
+    "fecha": "2026-06-27",
+    "claveFarmacia": "DEL PUERTO"
+  },
+  {
+    "fecha": "2026-06-27",
+    "claveFarmacia": "FALDINA"
+  },
+  {
+    "fecha": "2026-06-27",
+    "claveFarmacia": "FEBA S.C.S."
+  },
+  {
+    "fecha": "2026-06-27",
+    "claveFarmacia": "FERRERO"
+  },
+  {
+    "fecha": "2026-06-27",
+    "claveFarmacia": "LOPEZ"
+  },
+  {
+    "fecha": "2026-06-27",
+    "claveFarmacia": "MARQUEZ"
+  },
+  {
+    "fecha": "2026-06-27",
+    "claveFarmacia": "MITRE"
+  },
+  {
+    "fecha": "2026-06-27",
+    "claveFarmacia": "PEREIRA"
+  },
+  {
+    "fecha": "2026-06-27",
+    "claveFarmacia": "PIROLA"
+  },
+  {
+    "fecha": "2026-06-27",
+    "claveFarmacia": "STECKINGER"
+  },
+  {
+    "fecha": "2026-06-28",
+    "claveFarmacia": "BADAMAR SCS"
+  },
+  {
+    "fecha": "2026-06-28",
+    "claveFarmacia": "BUSTOS"
+  },
+  {
+    "fecha": "2026-06-28",
+    "claveFarmacia": "DEL INTERZONAL"
+  },
+  {
+    "fecha": "2026-06-28",
+    "claveFarmacia": "EL GROSELLAR"
+  },
+  {
+    "fecha": "2026-06-28",
+    "claveFarmacia": "MAR DEL GOMEZ S.C.S."
+  },
+  {
+    "fecha": "2026-06-28",
+    "claveFarmacia": "MARTI"
+  },
+  {
+    "fecha": "2026-06-28",
+    "claveFarmacia": "MEDICI S.C.S."
+  },
+  {
+    "fecha": "2026-06-28",
+    "claveFarmacia": "MITRE"
+  },
+  {
+    "fecha": "2026-06-28",
+    "claveFarmacia": "PEREIRA CECILIA"
+  },
+  {
+    "fecha": "2026-06-28",
+    "claveFarmacia": "PHARMABEACH SCS"
+  },
+  {
+    "fecha": "2026-06-28",
+    "claveFarmacia": "PREVILEY KAI SCS"
+  },
+  {
+    "fecha": "2026-06-28",
+    "claveFarmacia": "ROCHA"
+  },
+  {
+    "fecha": "2026-06-29",
+    "claveFarmacia": "BAUZA"
+  },
+  {
+    "fecha": "2026-06-29",
+    "claveFarmacia": "DEL CUETO"
+  },
+  {
+    "fecha": "2026-06-29",
+    "claveFarmacia": "DI IORIO BUONO"
+  },
+  {
+    "fecha": "2026-06-29",
+    "claveFarmacia": "FCIA.NUEVA CORDOBA SCS"
+  },
+  {
+    "fecha": "2026-06-29",
+    "claveFarmacia": "FERNANDEZ"
+  },
+  {
+    "fecha": "2026-06-29",
+    "claveFarmacia": "FRASSON"
+  },
+  {
+    "fecha": "2026-06-29",
+    "claveFarmacia": "MITRE"
+  },
+  {
+    "fecha": "2026-06-29",
+    "claveFarmacia": "MOLINA"
+  },
+  {
+    "fecha": "2026-06-29",
+    "claveFarmacia": "PIZZOLO"
+  },
+  {
+    "fecha": "2026-06-29",
+    "claveFarmacia": "PREVILEY"
+  },
+  {
+    "fecha": "2026-06-30",
+    "claveFarmacia": "CORAL S.C.S."
+  },
+  {
+    "fecha": "2026-06-30",
+    "claveFarmacia": "DOMINGUEZ LAY"
+  },
+  {
+    "fecha": "2026-06-30",
+    "claveFarmacia": "GILARDONI"
+  },
+  {
+    "fecha": "2026-06-30",
+    "claveFarmacia": "ITALIANA"
+  },
+  {
+    "fecha": "2026-06-30",
+    "claveFarmacia": "MITRE"
+  },
+  {
+    "fecha": "2026-06-30",
+    "claveFarmacia": "MONTERIOS SCS"
+  },
+  {
+    "fecha": "2026-06-30",
+    "claveFarmacia": "MORON"
+  },
+  {
+    "fecha": "2026-06-30",
+    "claveFarmacia": "PAZ"
+  },
+  {
+    "fecha": "2026-06-30",
+    "claveFarmacia": "PHARMADIET S.C.S."
+  },
+  {
+    "fecha": "2026-06-30",
+    "claveFarmacia": "RM SCS"
+  },
+  {
+    "fecha": "2026-06-30",
+    "claveFarmacia": "VIDA"
+  }
+]
