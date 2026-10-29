@@ -100,7 +100,7 @@ export default async function LocalidadPage({ params }: Props) {
 
   const farmaciasHoy = await prisma.farmacia.findMany({
     where: {
-      localidadId: localidadData.id,
+      localidades: { some: { localidadId: localidadData.id } },
       turnos: {
         some: {
           fechaInicio: { lte: ahora },
@@ -115,7 +115,7 @@ export default async function LocalidadPage({ params }: Props) {
 
   const proximosTurnos = await prisma.turno.findMany({
     where: {
-      farmacia: { localidadId: localidadData.id },
+      farmacia: { localidades: { some: { localidadId: localidadData.id } } },
       fechaInicio: { gt: ahora }
     },
     include: { farmacia: true },
@@ -126,7 +126,7 @@ export default async function LocalidadPage({ params }: Props) {
   // Si no hay turnos actuales, buscamos el último turno cargado (más reciente en el pasado)
   const ultimoTurno = await prisma.turno.findFirst({
     where: {
-      farmacia: { localidadId: localidadData.id },
+      farmacia: { localidades: { some: { localidadId: localidadData.id } } },
       fechaInicio: { lte: ahora }
     },
     include: { farmacia: true },

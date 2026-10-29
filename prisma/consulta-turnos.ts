@@ -18,17 +18,11 @@ async function obtenerTurnos(localidadSlug: string, fecha: Date) {
         gte: inicioDia,
       },
       farmacia: {
-        localidad: {
-          slug: localidadSlug,
-        },
+        localidades: { some: { localidad: { slug: localidadSlug } } },
       },
     },
     include: {
-      farmacia: {
-        include: {
-          localidad: true,
-        },
-      },
+      farmacia: true,
     },
     orderBy: {
       farmacia: {

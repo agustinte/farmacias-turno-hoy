@@ -13,7 +13,8 @@ async function main() {
 
     FROM Turno t
 	inner join Farmacia f on f.id = t.farmaciaId
-	inner join Localidad l on l.id = f.localidadId
+	inner join FarmaciaLocalidad fl on fl.farmaciaId = f.id
+	inner join Localidad l on l.id = fl.localidadId
 	where l.id = 1	
 	and datetime(t.fechaInicio / 1000, 'unixepoch') >= '2026-06-01'
     ORDER BY t.fechaInicio;

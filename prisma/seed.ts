@@ -32,7 +32,7 @@ async function main() {
 
   // 2. Traer las farmacias asociadas a esta localidad
   const farmaciasEnDB = await prisma.farmacia.findMany({
-    where: { localidadId: localidad.id },
+    where: { localidades: { some: { localidadId: localidad.id } } },
   });
 
   if (farmaciasEnDB.length === 0) {

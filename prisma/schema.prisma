@@ -8,28 +8,37 @@ datasource db {
 }
 
 model Localidad {
-  id        Int        @id @default(autoincrement())
+  id        Int                 @id @default(autoincrement())
   nombre    String
-  slug      String     @unique
-  farmacias Farmacia[]
+  slug      String              @unique
+  farmacias FarmaciaLocalidad[]
 }
 
 model Farmacia {
-  id          Int       @id @default(autoincrement())
+  id          Int                 @id @default(autoincrement())
   nombre      String
   direccion   String
   telefono    String?
   lat         Float?
   lng         Float?
-  localidadId Int
-  localidad   Localidad @relation(fields: [localidadId], references: [id])
+  localidades FarmaciaLocalidad[]
   turnos      Turno[]
 }
 
+model FarmaciaLocalidad {
+  farmaciaId  Int
+  localidadId Int
+  farmacia    Farmacia  @relation(fields: [farmaciaId], references: [id], onDelete: Cascade)
+  localidad   Localidad @relation(fields: [localidadId], references: [id], onDelete: Cascade)
+
+  @@id([farmaciaId, localidadId])
+  @@index([localidadId])
+}
+
 model Turno {
-  id         Int      @id @default(autoincrement())
-  farmaciaId Int
-  farmacia   Farmacia @relation(fields: [farmaciaId], references: [id])
+  id          Int      @id @default(autoincrement())
+  farmaciaId  Int
+  farmacia    Farmacia @relation(fields: [farmaciaId], references: [id])
   fechaInicio DateTime
   fechaFin    DateTime
 

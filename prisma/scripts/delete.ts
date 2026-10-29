@@ -10,7 +10,8 @@ async function main() {
       SELECT t.id
       FROM Turno t
       INNER JOIN Farmacia f ON f.id = t.farmaciaId
-      INNER JOIN Localidad l ON l.id = f.localidadId
+      INNER JOIN FarmaciaLocalidad fl ON fl.farmaciaId = f.id
+      INNER JOIN Localidad l ON l.id = fl.localidadId
       WHERE l.id = 1
         AND datetime(t.fechaInicio / 1000, 'unixepoch') >= '2026-06-01'
     );

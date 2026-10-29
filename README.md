@@ -51,6 +51,7 @@ npx prisma migrate reset --> Reset datos
 - **Flujo de datos:** Las páginas (Server/Client Components) consultan la capa de datos mediante llamadas a la base de datos a través de Prisma o por medio de los endpoints en `app/api`. Prisma gestiona la conexión con la base de datos usando la variable de entorno `DATABASE_URL`.
 
 - **Persistencia y migraciones:** Usa Prisma Migrate para versionar el esquema y `prisma/seed.ts` para poblar datos iniciales. Para explorar la BD en desarrollo usar `npx prisma studio`.
+- **Relación farmacia-localidad:** Una farmacia puede vincularse con varias localidades mediante `FarmaciaLocalidad`. Sus turnos siguen asociados a la farmacia, por lo que todas sus localidades comparten el mismo calendario. En `prisma/carga-farmacias.ts`, se indican las localidades de cada farmacia con `localidadIds`.
 
 - **Despliegue:** Orientado a Vercel; configura variables de entorno (p. ej. `DATABASE_URL`) en el panel de despliegue. Ver la sección "Deploy on Vercel" más abajo.
 

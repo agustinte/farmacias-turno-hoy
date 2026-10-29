@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Roboto } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import GoogleAnalytics from './components/GoogleAnalytics'
+import packageJson from "../package.json";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -55,14 +56,15 @@ export default function RootLayout({
 	    <GoogleAnalytics />
 		{children}
         <footer className="mt-auto bg-white border-t border-gray-100">
-          <div className="max-w-6xl mx-auto px-6 py-6 text-sm text-gray-600 flex items-center justify-between">
-            <div>
+	      <div className="max-w-6xl mx-auto px-6 py-6 text-sm text-gray-600 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:justify-between">
+	        <div className="flex items-center gap-2">
               <Link href="/" className="font-semibold text-[#0F2343] hover:text-green-700">
                 Farmacias de Turno
               </Link>
-            </div>
+	          <span className="text-xs text-gray-400">v {packageJson.version}</span>
+	        </div>
 
-            <div className="flex items-center gap-4">
+	        <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
               <Link href="/politica-privacidad" className="hover:text-green-700">
                 Política de Privacidad
               </Link>

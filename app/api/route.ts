@@ -16,7 +16,7 @@ export async function GET(request: Request) {
     where: {
       fechaInicio: { lte: ahora },
       fechaFin: { gte: ahora },
-      farmacia: { localidad: { slug } }
+      farmacia: { localidades: { some: { localidad: { slug } } } }
     },
     include: { farmacia: true }
   });

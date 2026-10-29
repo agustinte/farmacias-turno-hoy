@@ -12,7 +12,8 @@ async function main() {
 	WHERE farmaciaId IN (
 		SELECT f.id
 		FROM Farmacia f
-		INNER JOIN Localidad l ON l.id = f.localidadId
+		INNER JOIN FarmaciaLocalidad fl ON fl.farmaciaId = f.id
+		INNER JOIN Localidad l ON l.id = fl.localidadId
 		WHERE l.id in (1, 3, 7, 8, 9, 10, 11, 12)
 	)
 	AND datetime(fechaInicio / 1000, 'unixepoch') >= '2026-06-01';
