@@ -5,13 +5,11 @@ const prisma = new PrismaClient();
 // ==========================================
 // CONFIGURACIÓN: MODIFICÁ ESTOS DATOS PARA OTRA LOCALIDAD
 // ==========================================
-  
-const NOMBRE_LOCALIDAD = 'San Andres de Giles'; 
+ const NOMBRE_LOCALIDAD = 'San Andres de Giles'; 
 
 const CALENDARIO_RAW = [
-  { fecha: '2026-10-26', claveFarmacia: 'Farmacia Fornari' },
-  { fecha: '2026-10-27', claveFarmacia: 'Farmacia Silvera' },
-  { fecha: '2026-10-28', claveFarmacia: 'Farmacia Modelo de Giles (Ex Balado)' },
+  { fecha: '2026-10-29', claveFarmacia: 'Bocassi' },
+  { fecha: '2026-10-30', claveFarmacia: 'Farmacia García' },
   { fecha: '2026-10-31', claveFarmacia: 'Farmacia Mascardi' },
 ];
 
