@@ -5,12 +5,122 @@ const prisma = new PrismaClient();
 // ==========================================
 // CONFIGURACIÓN: MODIFICÁ ESTOS DATOS PARA OTRA LOCALIDAD
 // ==========================================
- const NOMBRE_LOCALIDAD = 'San Andres de Giles'; 
+const NOMBRE_LOCALIDAD = 'Lanus';
 
 const CALENDARIO_RAW = [
-  { fecha: '2026-10-29', claveFarmacia: 'Bocassi' },
-  { fecha: '2026-10-30', claveFarmacia: 'Farmacia García' },
-  { fecha: '2026-10-31', claveFarmacia: 'Farmacia Mascardi' },
+  // 21/10/2026
+  { fecha: '2026-10-21', claveFarmacia: 'PRADO' },
+  { fecha: '2026-10-21', claveFarmacia: 'YACHELINI' },
+  { fecha: '2026-10-21', claveFarmacia: 'NUEVA MOURIN' },
+  { fecha: '2026-10-21', claveFarmacia: 'CROUZAT' },
+  { fecha: '2026-10-21', claveFarmacia: 'NESTORE' },
+  { fecha: '2026-10-21', claveFarmacia: 'LA PAZ' },
+  { fecha: '2026-10-21', claveFarmacia: 'ESCALADA' },
+  { fecha: '2026-10-21', claveFarmacia: 'COUTO MARTINEZ' },
+  { fecha: '2026-10-21', claveFarmacia: 'MADAME CURIE' },
+
+  // 22/10/2026
+  { fecha: '2026-10-22', claveFarmacia: 'NIZOWSKI' },
+  { fecha: '2026-10-22', claveFarmacia: 'NUEVA MOURIN' },
+  { fecha: '2026-10-22', claveFarmacia: 'CROUZAT' },
+  { fecha: '2026-10-22', claveFarmacia: 'NESTORE' },
+  { fecha: '2026-10-22', claveFarmacia: 'LA PAZ' },
+  { fecha: '2026-10-22', claveFarmacia: 'ESCALADA' },
+  { fecha: '2026-10-22', claveFarmacia: 'BRANDO' },
+  { fecha: '2026-10-22', claveFarmacia: 'ELÍAS S.C.S.' },
+  { fecha: '2026-10-22', claveFarmacia: 'PINTOS' },
+
+  // 23/10/2026
+  { fecha: '2026-10-23', claveFarmacia: 'SANTA ISABEL' },
+  { fecha: '2026-10-23', claveFarmacia: 'NUEVA MOURIN' },
+  { fecha: '2026-10-23', claveFarmacia: 'CROUZAT' },
+  { fecha: '2026-10-23', claveFarmacia: 'NESTORE' },
+  { fecha: '2026-10-23', claveFarmacia: 'LA PAZ' },
+  { fecha: '2026-10-23', claveFarmacia: 'ESCALADA' },
+  { fecha: '2026-10-23', claveFarmacia: 'NOBEL' },
+  { fecha: '2026-10-23', claveFarmacia: 'REX' },
+
+  // 24/10/2026
+  { fecha: '2026-10-24', claveFarmacia: 'ROTOLO' },
+  { fecha: '2026-10-24', claveFarmacia: 'SAN LUIS DE MONFORT' },
+  { fecha: '2026-10-24', claveFarmacia: 'NUEVA MOURIN' },
+  { fecha: '2026-10-24', claveFarmacia: 'CROUZAT' },
+  { fecha: '2026-10-24', claveFarmacia: 'NESTORE' },
+  { fecha: '2026-10-24', claveFarmacia: 'LA PAZ' },
+  { fecha: '2026-10-24', claveFarmacia: 'ESCALADA' },
+  { fecha: '2026-10-24', claveFarmacia: 'ZARZA TUFARI' },
+  { fecha: '2026-10-24', claveFarmacia: 'BERALDI' },
+  { fecha: '2026-10-24', claveFarmacia: 'VENDITTI' },
+
+  // 25/10/2026
+  { fecha: '2026-10-25', claveFarmacia: 'NUEVA MOURIN' },
+  { fecha: '2026-10-25', claveFarmacia: 'CROUZAT' },
+  { fecha: '2026-10-25', claveFarmacia: 'NESTORE' },
+  { fecha: '2026-10-25', claveFarmacia: 'LA PAZ' },
+  { fecha: '2026-10-25', claveFarmacia: 'ESCALADA' },
+  { fecha: '2026-10-25', claveFarmacia: 'PARISI' },
+
+  // 26/10/2026
+  { fecha: '2026-10-26', claveFarmacia: 'NUEVA MOURIN' },
+  { fecha: '2026-10-26', claveFarmacia: 'CROUZAT' },
+  { fecha: '2026-10-26', claveFarmacia: 'NESTORE' },
+  { fecha: '2026-10-26', claveFarmacia: 'LA PAZ' },
+  { fecha: '2026-10-26', claveFarmacia: 'ESCALADA' },
+  { fecha: '2026-10-26', claveFarmacia: 'MIGLIORE' },
+  { fecha: '2026-10-26', claveFarmacia: 'GOLD' },
+  { fecha: '2026-10-26', claveFarmacia: 'MARA' },
+
+  // 27/10/2026
+  { fecha: '2026-10-27', claveFarmacia: 'MARÍA DEL ROSARIO' },
+  { fecha: '2026-10-27', claveFarmacia: 'NUEVA MOURIN' },
+  { fecha: '2026-10-27', claveFarmacia: 'CROUZAT' },
+  { fecha: '2026-10-27', claveFarmacia: 'NESTORE' },
+  { fecha: '2026-10-27', claveFarmacia: 'LA PAZ' },
+  { fecha: '2026-10-27', claveFarmacia: 'ESCALADA' },
+  { fecha: '2026-10-27', claveFarmacia: 'MEDICAMENTA' },
+  { fecha: '2026-10-27', claveFarmacia: 'NAVIK' },
+
+  // 28/10/2026
+  { fecha: '2026-10-28', claveFarmacia: 'PF MONTE CHINGOLO S.C.S.' },
+  { fecha: '2026-10-28', claveFarmacia: 'NUEVA MOURIN' },
+  { fecha: '2026-10-28', claveFarmacia: 'CROUZAT' },
+  { fecha: '2026-10-28', claveFarmacia: 'NESTORE' },
+  { fecha: '2026-10-28', claveFarmacia: 'LA PAZ' },
+  { fecha: '2026-10-28', claveFarmacia: 'ESCALADA' },
+  { fecha: '2026-10-28', claveFarmacia: 'M. FERNÁNDEZ' },
+  { fecha: '2026-10-28', claveFarmacia: 'SAN MARCO DE LEÓN' },
+
+  // 29/10/2026
+  { fecha: '2026-10-29', claveFarmacia: 'PRADO' },
+  { fecha: '2026-10-29', claveFarmacia: 'NUEVA MOURIN' },
+  { fecha: '2026-10-29', claveFarmacia: 'CROUZAT' },
+  { fecha: '2026-10-29', claveFarmacia: 'NESTORE' },
+  { fecha: '2026-10-29', claveFarmacia: 'LA PAZ' },
+  { fecha: '2026-10-29', claveFarmacia: 'ESCALADA' },
+  { fecha: '2026-10-29', claveFarmacia: 'CABEZUELO S.C.S.' },
+  { fecha: '2026-10-29', claveFarmacia: 'VERGARA' },
+
+  // 30/10/2026
+  { fecha: '2026-10-30', claveFarmacia: 'ZUKAUSKAS' },
+  { fecha: '2026-10-30', claveFarmacia: 'NIZOWSKI' },
+  { fecha: '2026-10-30', claveFarmacia: 'NUEVA MOURIN' },
+  { fecha: '2026-10-30', claveFarmacia: 'CROUZAT' },
+  { fecha: '2026-10-30', claveFarmacia: 'NESTORE' },
+  { fecha: '2026-10-30', claveFarmacia: 'LA PAZ' },
+  { fecha: '2026-10-30', claveFarmacia: 'ESCALADA' },
+  { fecha: '2026-10-30', claveFarmacia: 'POSIK' },
+  { fecha: '2026-10-30', claveFarmacia: 'BASILIO' },
+
+  // 31/10/2026
+  { fecha: '2026-10-31', claveFarmacia: 'CENTRAL' },
+  { fecha: '2026-10-31', claveFarmacia: 'SANTA ISABEL' },
+  { fecha: '2026-10-31', claveFarmacia: 'NUEVA MOURIN' },
+  { fecha: '2026-10-31', claveFarmacia: 'CROUZAT' },
+  { fecha: '2026-10-31', claveFarmacia: 'NESTORE' },
+  { fecha: '2026-10-31', claveFarmacia: 'LA PAZ' },
+  { fecha: '2026-10-31', claveFarmacia: 'ESCALADA' },
+  { fecha: '2026-10-31', claveFarmacia: 'SAN JOSÉ' },
+  { fecha: '2026-10-31', claveFarmacia: 'MENDOZA' },
 ];
 
 // ==========================================
