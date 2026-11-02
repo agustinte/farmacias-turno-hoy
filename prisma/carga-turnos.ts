@@ -29,8 +29,6 @@ const NOMBRE_LOCALIDAD = 'San Antonio de Areco';
 //   { fecha: '2026-07-02', claveFarmacia: 'Del Pueblo' },
 // ];
 const CALENDARIO_RAW = [
-  { fecha: '2026-06-01', claveFarmacia: 'Rodríguez Scheys' },
-  { fecha: '2026-06-02', claveFarmacia: 'Torra' },
   { fecha: '2026-06-03', claveFarmacia: 'Fattore' },
   { fecha: '2026-06-04', claveFarmacia: 'Bauer' },
   { fecha: '2026-06-05', claveFarmacia: 'Risolino' },
@@ -177,7 +175,7 @@ PROMPT: Generar listado para turnos
 San Antonio de Areco
 ------------------------------------------
 Obtener lista de tunos corriendo el siguiente script
-C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 8 2026-07-01 31
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 8 2026-11-01 31
 
 Generar listado similar al siguiente con las fechas y farmacias de la imagen (año y mes actual). 
 const CALENDARIO_RAW = [
@@ -222,7 +220,7 @@ Farmacia Silvano
 ------------------------------------------
 Pergamino
 ------------------------------------------
-C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 1 2026-10-01 31
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 1 2026-11-01 31
 
 ------------------------------------------
 San Andrés de Giles
