@@ -106,7 +106,7 @@ function imprimirComoJS(datos, nombreVariable = 'CALENDARIO_RAW') {
 // --- Ejecución ---
 (async () => {
   const ANIO = 2026;
-  const MES = 9; // septiembre
+  const MES = 11; // noviembre
 
   const resultado = await obtenerMes(ANIO, MES);
 

@@ -300,17 +300,17 @@ C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 11 2026-10-01 31
 ------------------------------------------
 Arrecifes
 ------------------------------------------
-C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 10 2026-10-01 31
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 10 2026-11-01 31
 
 ------------------------------------------
 Carmen de Areco
 ------------------------------------------
-C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 32 2026-10-01 31
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 32 2026-11-01 31
 
 ------------------------------------------
 Junin
 ------------------------------------------
-C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 9 2026-10-01 31
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 9 2026-11-01 31
 
 ------------------------------------------
 Ramallo
@@ -331,7 +331,7 @@ C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 13 2026-10-01 31
 ------------------------------------------
 Salto
 ------------------------------------------
-C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 74 2026-10-01 31
+C:\_data\sfdt\farmacias-turno\automate>node getDataOsam.js 74 2026-11-01 31
 
 ------------------------------------------
 Mar del Plata
