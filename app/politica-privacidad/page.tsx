@@ -19,7 +19,7 @@ export default function PoliticaPrivacidad() {
             Política de Privacidad
           </h1>
           <p className="text-sm text-slate-500 mt-2">
-            Última actualización: Mayo 2026
+            Última actualización: Noviembre 2026
           </p>
         </div>
 
@@ -65,8 +65,9 @@ export default function PoliticaPrivacidad() {
             <p className="text-slate-600 leading-relaxed">
               Nuestra aplicación integra herramientas de terceros para mejorar la experiencia de usuario. 
               Específicamente, utilizamos el servicio de mapas incrustados de <strong>Google Maps</strong> para 
-              facilitar la visualización de las direcciones de las farmacias. El uso de esta funcionalidad está sujeto 
-              a los Términos de Servicio y la Política de Privacidad de Google.
+              facilitar la visualización de las direcciones de las farmacias y <strong>Google AdSense</strong> para 
+              mostrar anuncios. Estos servicios pueden recopilar información mediante cookies o tecnologías similares, 
+              de acuerdo con sus propias políticas de privacidad.
             </p>
           </section>
 
@@ -75,7 +76,10 @@ export default function PoliticaPrivacidad() {
               4. Cookies
             </h2>
             <p className="text-slate-600 leading-relaxed">
-              NO Utilizamos cookies.
+              Google AdSense y otros servicios de terceros pueden utilizar cookies o tecnologías similares para 
+              mostrar y medir anuncios, y, según la configuración disponible, personalizarlos. Podés consultar cómo 
+              Google utiliza los datos en los sitios y aplicaciones que usan sus servicios en la Política de Privacidad 
+              de Google y administrar la personalización de anuncios desde la configuración de anuncios de Google.
             </p>
           </section>
 

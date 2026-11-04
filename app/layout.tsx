@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Roboto } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Link from "next/link";
 import GoogleAnalytics from './components/GoogleAnalytics'
@@ -54,6 +55,11 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col font-sans">
 	    <GoogleAnalytics />
+        <Script
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0374829356108140"
+          strategy="afterInteractive"
+          crossOrigin="anonymous"
+        />
 		{children}
         <footer className="mt-auto bg-white border-t border-gray-100">
 	      <div className="max-w-6xl mx-auto px-6 py-6 text-sm text-gray-600 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:justify-between">
