@@ -10,9 +10,10 @@ const prisma = new PrismaClient();
 // const NOMBRE_LOCALIDAD = 'Lanus';  
 
 const CALENDARIO_RAW = [
-  { fecha: '2026-11-04', claveFarmacia: 'Risolino' },
-  { fecha: '2026-11-05', claveFarmacia: 'Torra' },
-  { fecha: '2026-11-06', claveFarmacia: 'Berola' }
+  { fecha: '2026-11-07', claveFarmacia: 'Bobbett' },
+  { fecha: '2026-11-08', claveFarmacia: 'Rodríguez Scheys' },
+  { fecha: '2026-11-09', claveFarmacia: 'Del Pueblo' },
+  { fecha: '2026-11-10', claveFarmacia: 'Fattore' }
 ];
 
 // ==========================================
