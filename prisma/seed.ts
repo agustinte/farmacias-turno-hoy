@@ -9,11 +9,38 @@ const prisma = new PrismaClient();
 //const NOMBRE_LOCALIDAD = 'San Andres de Giles'; 
 // const NOMBRE_LOCALIDAD = 'Lanus';  
 
+
 const CALENDARIO_RAW = [
+  { fecha: '2026-11-01', claveFarmacia: 'Del Pueblo' },
+  { fecha: '2026-11-02', claveFarmacia: 'Fattore' },
+  { fecha: '2026-11-03', claveFarmacia: 'Bótica Bauer' },
+  { fecha: '2026-11-04', claveFarmacia: 'Risolino' },
+  { fecha: '2026-11-05', claveFarmacia: 'Torra' },
+  { fecha: '2026-11-06', claveFarmacia: 'Berola' },
   { fecha: '2026-11-07', claveFarmacia: 'Bobbett' },
   { fecha: '2026-11-08', claveFarmacia: 'Rodríguez Scheys' },
   { fecha: '2026-11-09', claveFarmacia: 'Del Pueblo' },
-  { fecha: '2026-11-10', claveFarmacia: 'Fattore' }
+  { fecha: '2026-11-10', claveFarmacia: 'Fattore' },
+  { fecha: '2026-11-11', claveFarmacia: 'Bótica Bauer' },
+  { fecha: '2026-11-12', claveFarmacia: 'Risolino' },
+  { fecha: '2026-11-13', claveFarmacia: 'Torra' },
+  { fecha: '2026-11-14', claveFarmacia: 'Berola' },
+  { fecha: '2026-11-15', claveFarmacia: 'Fattore' },
+  { fecha: '2026-11-16', claveFarmacia: 'Bótica Bauer' },
+  { fecha: '2026-11-17', claveFarmacia: 'Risolino' },
+  { fecha: '2026-11-18', claveFarmacia: 'Torra' },
+  { fecha: '2026-11-19', claveFarmacia: 'Berola' },
+  { fecha: '2026-11-20', claveFarmacia: 'Bobbett' },
+  { fecha: '2026-11-21', claveFarmacia: 'Rodríguez Scheys' },
+  { fecha: '2026-11-22', claveFarmacia: 'Del Pueblo' },
+  { fecha: '2026-11-23', claveFarmacia: 'Fattore' },
+  { fecha: '2026-11-24', claveFarmacia: 'Bótica Bauer' },
+  { fecha: '2026-11-25', claveFarmacia: 'Risolino' },
+  { fecha: '2026-11-26', claveFarmacia: 'Torra' },
+  { fecha: '2026-11-27', claveFarmacia: 'Torra' },
+  { fecha: '2026-11-28', claveFarmacia: 'Berola' },
+  { fecha: '2026-11-29', claveFarmacia: 'Bobbett' },
+  { fecha: '2026-11-30', claveFarmacia: 'Rodríguez Scheys' },
 ];
 
 // ==========================================
